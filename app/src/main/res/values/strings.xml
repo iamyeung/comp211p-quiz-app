@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">NewQuiz</string>
+    <string name="action_settings">Settings</string>
+    <string name="correctMessage">Correct!</string>
+    <string name="incorrectMessage">Incorrect! The correct answer is...</string>
+    <string name="skipMessage">Question skipped.</string>
+    <string name="cheatMessage">The correct answer is...</string>
+
+    <string name="Q1">The Great Wall Of China is visible from the moon.</string>
+    <string name="A1">The Great Wall Of China is NOT visible from the moon.</string>
+    <string name="Q2">President Theodore Roosevelt\'s son was called Jack.</string>
+    <string name="A2">President Theodore Roosevelt\'s son was called KERMIT.</string>
+    <string name="Q3">A slug\'s blood is green.</string>
+    <string name="A3">A slug\'s blood is actually green.</string>
+    <string name="Q4">All Las Vegas gambling casinos have no clocks.</string>
+    <string name="A4">Indeed, all Las Vegas gambling casinos have no clocks.</string>
+    <string name="Q5">UCL is better than KCL.</string>
+    <string name="A5">UCL is indeed BETTER than KCL.</string>
+</resources>
