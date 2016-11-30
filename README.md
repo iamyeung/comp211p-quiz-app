@@ -1,9 +1,5 @@
 # comp211p-quiz-app
 
-Annette
-JT
-Quiz App
-
 The program currently goes like this.
 1. Start Screen (MainActivity.java)
 Press Single Player
