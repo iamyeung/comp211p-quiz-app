@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         singlePlayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getApplicationContext(), QuestionPage.class);
+                Intent in = new Intent(getApplicationContext(), SinglePlayerInputName.class);
                 startActivity(in);
             }
         });

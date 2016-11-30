@@ -2,6 +2,7 @@ package com.example.comp211p.newquiz;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -17,6 +18,9 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class QuizInterface extends AppCompatActivity {
 
     private Button trueButton;
@@ -24,11 +28,93 @@ public class QuizInterface extends AppCompatActivity {
     private Button skipButton;
     private Button cheatButton;
     private Button returnButton;
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
+
+    //this is the code for delaying the launch task.
+    private Handler mHandler = new Handler();
+    private Runnable mLaunchTask = new Runnable () {
+        public void run() {
+            goToQuestionPage();
+        }
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.content_quiz_interface);
+        findViewById(R.id.answerText).setVisibility(View.INVISIBLE); //reveals the answer to the gamer
+
+        returnButton = (Button) findViewById(R.id.returnButton);
+        trueButton = (Button) findViewById(R.id.trueButton);
+        falseButton = (Button) findViewById(R.id.falseButton);
+        skipButton = (Button) findViewById(R.id.skipButton);
+        cheatButton = (Button) findViewById(R.id.cheatButton);
+
+        selectedButton();
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+    public void selectedButton(){
+        trueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(QuizInterface.this, R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
+                revealAnswer();
+                trueButton.setEnabled(false);
+                falseButton.setEnabled(false);
+                cheatButton.setEnabled(false);
+                skipButton.setEnabled(false);
+                //you can change the length of time by which the launch task is delayed - currently 500ms
+                mHandler.postDelayed(mLaunchTask, 3500);
+            }
+        });
+        falseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(QuizInterface.this, R.string.correctMessage, Toast.LENGTH_SHORT).show();
+                revealAnswer();
+                trueButton.setEnabled(false);
+                falseButton.setEnabled(false);
+                cheatButton.setEnabled(false);
+                skipButton.setEnabled(false);
+                //you can change the length of time by which the launch task is delayed - currently 500ms
+                mHandler.postDelayed(mLaunchTask, 3500);
+            }
+        });
+        skipButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(QuizInterface.this, R.string.skipMessage, Toast.LENGTH_SHORT).show();
+                goToQuestionPage();
+                //there is no need to add a mHandler.postDelayed method here because the skip button will directly link you back to the Question Page
+            }
+        });
+        cheatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(QuizInterface.this, R.string.cheatMessage, Toast.LENGTH_SHORT).show();
+                revealAnswer();
+                trueButton.setEnabled(false);
+                falseButton.setEnabled(false);
+                cheatButton.setEnabled(false);
+                skipButton.setEnabled(false);
+                mHandler.postDelayed(mLaunchTask, 3500);
+            }
+        });
+        returnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToQuestionPage();
+            }
+        });
+    }
 
     public void revealAnswer() {
         findViewById(R.id.answerText).setVisibility(View.VISIBLE);
@@ -42,92 +128,39 @@ public class QuizInterface extends AppCompatActivity {
         startActivity(in);
     }
 
+    /*
     public void onClickTrue(View view) {
-        Toast.makeText(this, "@string/incorrectMessage", Toast.LENGTH_SHORT).show();
+        Toast.makeText(QuizInterface.this, R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
         revealAnswer();
+        falseButton.setEnabled(false);
+        //you can change the length of time by which the launch task is delayed - currently 500ms
+        mHandler.postDelayed(mLaunchTask, 3500);
     }
 
     public void onClickFalse(View view) {
-        Toast.makeText(this, "@/correctMessage", Toast.LENGTH_SHORT).show();
+        Toast.makeText(QuizInterface.this, R.string.correctMessage, Toast.LENGTH_SHORT).show();
         revealAnswer();
+        //you can change the length of time by which the launch task is delayed - currently 500ms
+        mHandler.postDelayed(mLaunchTask, 3500);
     }
 
     public void onClickSkip(View view) {
-        Toast.makeText(this, "@skipMessage", Toast.LENGTH_SHORT).show();
+        Toast.makeText(QuizInterface.this, R.string.skipMessage, Toast.LENGTH_SHORT).show();
         goToQuestionPage();
+        //there is no need to add a mHandler.postDelayed method here because the skip button will directly link you back to the Question Page
     }
 
     public void onClickCheat(View view) {
-        Toast.makeText(this, "@cheatMessage", Toast.LENGTH_SHORT).show();
+        Toast.makeText(QuizInterface.this, R.string.cheatMessage, Toast.LENGTH_SHORT).show();
         revealAnswer();
+        mHandler.postDelayed(mLaunchTask, 3500);
     }
 
     public void onClickReturn(View view) {
         goToQuestionPage();
     }
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_quiz_interface);
-        findViewById(R.id.answerText).setVisibility(View.INVISIBLE);
-
-        returnButton = (Button) findViewById(R.id.returnButton);
-        /*
-        returnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = new Intent(getApplicationContext(), QuestionPage.class);
-                startActivity(in);
-            }
-        });
-        */
-        /*
-        @Override
-        trueButton = (Button) findViewById(R.id.trueButton);
-        falseButton = (Button) findViewById(R.id.falseButton);
-        skipButton = (Button) findViewById(R.id.skipButton);
-        cheatButton = (Button) findViewById(R.id.cheatButton);
-
-        trueButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(QuizInterface.this,
-                        R.string.true_toast,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
-        falseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(QuizInterface.this,
-                        R.string.false_toast,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        skipButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(QuizInterface.this,
-                        R.string.skip_toast,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
-        cheatButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(QuizInterface.this,
-                        R.string.cheat_toast,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
-        */
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-    }
+    */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

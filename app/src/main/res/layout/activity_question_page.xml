@@ -22,27 +22,39 @@
         android:weightSum="1">
 
         <TextView
-            android:text="Question List"
+            android:text="Welcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView"
             android:textStyle="normal|bold"
             android:textAlignment="center"
-            android:textSize="36sp" />
+            android:textSize="30sp"
+            android:id="@+id/welcomeText"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/showGlobal"
+            android:textStyle="normal|bold"
+            android:textAlignment="center"
+            android:textSize="36sp"
+            android:text="SinglePlayerName"
+            android:gravity="center" />
         
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp" />
+
         <Button
             android:text="1"
             android:id="@+id/button1"
             android:layout_gravity="center"
-            android:layout_height="65dp"
-            android:layout_width="65dp"
             android:textSize="18sp"
             android:textStyle="normal|bold"
             android:background="@android:color/holo_orange_light"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
 
         <Space
             android:layout_width="match_parent"
@@ -52,12 +64,12 @@
             android:text="2"
             android:id="@+id/button2"
             android:layout_gravity="center"
-            android:layout_height="65dp"
-            android:layout_width="65dp"
             android:textSize="18sp"
             android:textStyle="normal|bold"
             android:background="@android:color/holo_orange_light"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
 
         <Space
             android:layout_width="match_parent"
@@ -67,8 +79,8 @@
             android:text="3"
             android:id="@+id/button3"
             android:layout_gravity="center"
-            android:layout_height="65dp"
-            android:layout_width="65dp"
+            android:layout_height="60dp"
+            android:layout_width="60dp"
             android:textSize="18sp"
             android:textStyle="normal|bold"
             android:background="@android:color/holo_orange_light"
@@ -82,8 +94,8 @@
             android:text="4"
             android:id="@+id/button4"
             android:layout_gravity="center"
-            android:layout_height="65dp"
-            android:layout_width="65dp"
+            android:layout_height="60dp"
+            android:layout_width="60dp"
             android:textSize="18sp"
             android:textStyle="normal|bold"
             android:background="@android:color/holo_orange_light"
@@ -97,8 +109,8 @@
             android:text="5"
             android:id="@+id/button5"
             android:layout_gravity="center"
-            android:layout_height="65dp"
-            android:layout_width="65dp"
+            android:layout_height="60dp"
+            android:layout_width="60dp"
             android:textSize="18sp"
             android:textStyle="normal|bold"
             android:background="@android:color/holo_orange_light"
