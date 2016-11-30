@@ -23,6 +23,7 @@ import java.util.TimerTask;
 
 public class QuizInterface extends AppCompatActivity {
 
+    //declare all the buttons for use
     private Button trueButton;
     private Button falseButton;
     private Button skipButton;
@@ -47,14 +48,16 @@ public class QuizInterface extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_quiz_interface);
-        findViewById(R.id.answerText).setVisibility(View.INVISIBLE); //reveals the answer to the gamer
+        findViewById(R.id.answerText).setVisibility(View.INVISIBLE); //the answer is initially invisible. revealAnswer() will reveal the answer
 
+        //declare all the buttons by finding the relevant ID - the ID name is set in the .xml file
         returnButton = (Button) findViewById(R.id.returnButton);
         trueButton = (Button) findViewById(R.id.trueButton);
         falseButton = (Button) findViewById(R.id.falseButton);
         skipButton = (Button) findViewById(R.id.skipButton);
         cheatButton = (Button) findViewById(R.id.cheatButton);
 
+        //selectedButton is a method that causes all the other buttons to show as false once one button is chosen
         selectedButton();
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -67,11 +70,12 @@ public class QuizInterface extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(QuizInterface.this, R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
+                //all buttons will be set to false, such that none of them can be pressed anymore. they can only press return, or wait 3.5 seconds for the screen to return to question page
                 trueButton.setEnabled(false);
                 falseButton.setEnabled(false);
                 cheatButton.setEnabled(false);
                 skipButton.setEnabled(false);
-                //you can change the length of time by which the launch task is delayed - currently 500ms
+                //you can change the length of time by which the launch task is delayed - currently 3500ms (3.5s)
                 mHandler.postDelayed(mLaunchTask, 3500);
             }
         });
@@ -80,11 +84,12 @@ public class QuizInterface extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(QuizInterface.this, R.string.correctMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
+                //all buttons will be set to false, such that none of them can be pressed anymore. they can only press return, or wait 3.5 seconds for the screen to return to question page
                 trueButton.setEnabled(false);
                 falseButton.setEnabled(false);
                 cheatButton.setEnabled(false);
                 skipButton.setEnabled(false);
-                //you can change the length of time by which the launch task is delayed - currently 500ms
+                //you can change the length of time by which the launch task is delayed - currently 3500ms (3.5s)
                 mHandler.postDelayed(mLaunchTask, 3500);
             }
         });
@@ -101,10 +106,12 @@ public class QuizInterface extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(QuizInterface.this, R.string.cheatMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
+                //all buttons will be set to false, such that none of them can be pressed anymore. they can only press return, or wait 3.5 seconds for the screen to return to question page
                 trueButton.setEnabled(false);
                 falseButton.setEnabled(false);
                 cheatButton.setEnabled(false);
                 skipButton.setEnabled(false);
+                //you can change the length of time by which the launch task is delayed - currently 3500ms (3.5s)
                 mHandler.postDelayed(mLaunchTask, 3500);
             }
         });
@@ -119,6 +126,7 @@ public class QuizInterface extends AppCompatActivity {
     public void revealAnswer() {
         findViewById(R.id.answerText).setVisibility(View.VISIBLE);
         TranslateAnimation animation = new TranslateAnimation(0, 0, 2000, 0);
+        //animation time for the text to pop up is 0.5 seconds, can change if you need
         animation.setDuration(500);
         findViewById(R.id.answerText).startAnimation(animation);
     }
@@ -127,40 +135,6 @@ public class QuizInterface extends AppCompatActivity {
         Intent in = new Intent(getApplicationContext(), QuestionPage.class);
         startActivity(in);
     }
-
-    /*
-    public void onClickTrue(View view) {
-        Toast.makeText(QuizInterface.this, R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
-        revealAnswer();
-        falseButton.setEnabled(false);
-        //you can change the length of time by which the launch task is delayed - currently 500ms
-        mHandler.postDelayed(mLaunchTask, 3500);
-    }
-
-    public void onClickFalse(View view) {
-        Toast.makeText(QuizInterface.this, R.string.correctMessage, Toast.LENGTH_SHORT).show();
-        revealAnswer();
-        //you can change the length of time by which the launch task is delayed - currently 500ms
-        mHandler.postDelayed(mLaunchTask, 3500);
-    }
-
-    public void onClickSkip(View view) {
-        Toast.makeText(QuizInterface.this, R.string.skipMessage, Toast.LENGTH_SHORT).show();
-        goToQuestionPage();
-        //there is no need to add a mHandler.postDelayed method here because the skip button will directly link you back to the Question Page
-    }
-
-    public void onClickCheat(View view) {
-        Toast.makeText(QuizInterface.this, R.string.cheatMessage, Toast.LENGTH_SHORT).show();
-        revealAnswer();
-        mHandler.postDelayed(mLaunchTask, 3500);
-    }
-
-    public void onClickReturn(View view) {
-        goToQuestionPage();
-    }
-
-    */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

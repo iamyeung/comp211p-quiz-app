@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TruthOrFalseQuiz</string>
+    <string name="app_name">TrueorFalseQuiz</string>
     <string name="action_settings">Settings</string>
     <string name="correctMessage">Correct!</string>
     <string name="incorrectMessage">Incorrect! The correct answer is...</string>
