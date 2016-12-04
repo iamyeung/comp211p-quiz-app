@@ -2,7 +2,7 @@ package com.example.comp211p.newquiz;
 
 import android.app.Application;
 
-public class GlobalClass extends Application {
+public class QuizApp extends Application {
 
     private String singlePlayerName;
     private String twoPlayerName1;

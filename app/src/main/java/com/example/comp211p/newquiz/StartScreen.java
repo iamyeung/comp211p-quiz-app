@@ -11,7 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class StartScreen extends AppCompatActivity {
 
     private Button singlePlayerButton;
     private Button twoPlayerButton;

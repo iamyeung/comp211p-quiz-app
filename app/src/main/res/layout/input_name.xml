@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@android:color/holo_blue_light"
-    tools:context="com.example.comp211p.newquiz.SinglePlayerInputName">
+    tools:context="com.example.comp211p.newquiz.InputName">
 
     <LinearLayout
         android:orientation="vertical"

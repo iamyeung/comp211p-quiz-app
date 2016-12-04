@@ -1,14 +1,13 @@
 package com.example.comp211p.newquiz;
 
 import android.content.Intent;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class QuestionPage extends AppCompatActivity {
+public class QuestionSelectionPage extends AppCompatActivity {
 
     private Button button1;
     private Button button2;
@@ -32,10 +31,10 @@ public class QuestionPage extends AppCompatActivity {
         });
 
         // Calling Application class
-        final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+        final QuizApp app = (QuizApp) getApplicationContext();
         // Get singlePlayerName from global/application context
-        final String singlePlayerName = globalVariable.getSinglePlayerName();
-        TextView showGlobal = (TextView) findViewById(R.id.showGlobal);
+        final String singlePlayerName = app.getSinglePlayerName();
+        TextView showGlobal = (TextView) findViewById(R.id.player1name);
         showGlobal.setText(singlePlayerName);
     }
 }

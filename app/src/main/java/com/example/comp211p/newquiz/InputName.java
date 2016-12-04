@@ -8,7 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class SinglePlayerInputName extends AppCompatActivity {
+public class InputName extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,13 +17,13 @@ public class SinglePlayerInputName extends AppCompatActivity {
 
         final Button toQuestionPageButton;
         toQuestionPageButton = (Button) findViewById(R.id.toQuestionPageButton);
-        final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+        final QuizApp app = (QuizApp) getApplicationContext();
 
         toQuestionPageButton.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {
                 String singlePlayerName = ((EditText)findViewById(R.id.singlePlayerName)).getText().toString();
-                globalVariable.setSinglePlayerName(singlePlayerName);
-                Intent in = new Intent(getBaseContext(), QuestionPage.class);
+                app.setSinglePlayerName(singlePlayerName);
+                Intent in = new Intent(getBaseContext(), QuestionSelectionPage.class);
                 startActivity(in);
             }
         });
