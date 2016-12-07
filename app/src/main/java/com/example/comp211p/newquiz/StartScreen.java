@@ -20,15 +20,37 @@ public class StartScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.start_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        singlePlayerButton = (Button) findViewById(R.id.singlePlayerButton);
 
+        singlePlayerButton = (Button) findViewById(R.id.singlePlayerButton);
         singlePlayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getApplicationContext(), SinglePlayerInputName.class);
+                Intent in = new Intent(getApplicationContext(), InputName.class);
+                startActivity(in);
+            }
+        });
+
+        twoPlayerButton = (Button) findViewById(R.id.twoPlayerButton);
+        twoPlayerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getApplicationContext(), InputName.class);
+                startActivity(in);
+            }
+        });
+        /*
+        I did not name it MultiPlayerButton because it multi may mean more than two, and we are not aiming to make the game
+        playable for 3+ players
+        */
+
+        highScoresButton = (Button) findViewById(R.id.highScoresButton);
+        highScoresButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getApplicationContext(), HighScores.class);
                 startActivity(in);
             }
         });

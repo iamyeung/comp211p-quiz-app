@@ -28,7 +28,6 @@ public class QuizInterface extends AppCompatActivity {
     private Button falseButton;
     private Button skipButton;
     private Button cheatButton;
-    private Button returnButton;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -47,11 +46,10 @@ public class QuizInterface extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_quiz_interface);
+        setContentView(R.layout.quiz_interface);
         findViewById(R.id.answerText).setVisibility(View.INVISIBLE); //the answer is initially invisible. revealAnswer() will reveal the answer
 
         //declare all the buttons by finding the relevant ID - the ID name is set in the .xml file
-        returnButton = (Button) findViewById(R.id.returnButton);
         trueButton = (Button) findViewById(R.id.trueButton);
         falseButton = (Button) findViewById(R.id.falseButton);
         skipButton = (Button) findViewById(R.id.skipButton);
@@ -76,7 +74,7 @@ public class QuizInterface extends AppCompatActivity {
                 cheatButton.setEnabled(false);
                 skipButton.setEnabled(false);
                 //you can change the length of time by which the launch task is delayed - currently 3500ms (3.5s)
-                mHandler.postDelayed(mLaunchTask, 3500);
+                mHandler.postDelayed(mLaunchTask, 2000);
             }
         });
         falseButton.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +88,7 @@ public class QuizInterface extends AppCompatActivity {
                 cheatButton.setEnabled(false);
                 skipButton.setEnabled(false);
                 //you can change the length of time by which the launch task is delayed - currently 3500ms (3.5s)
-                mHandler.postDelayed(mLaunchTask, 3500);
+                mHandler.postDelayed(mLaunchTask, 2000);
             }
         });
         skipButton.setOnClickListener(new View.OnClickListener() {
@@ -112,13 +110,7 @@ public class QuizInterface extends AppCompatActivity {
                 cheatButton.setEnabled(false);
                 skipButton.setEnabled(false);
                 //you can change the length of time by which the launch task is delayed - currently 3500ms (3.5s)
-                mHandler.postDelayed(mLaunchTask, 3500);
-            }
-        });
-        returnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToQuestionPage();
+                mHandler.postDelayed(mLaunchTask, 2000);
             }
         });
     }
@@ -132,7 +124,7 @@ public class QuizInterface extends AppCompatActivity {
     }
 
     public void goToQuestionPage() {
-        Intent in = new Intent(getApplicationContext(), QuestionPage.class);
+        Intent in = new Intent(getApplicationContext(), QuestionSelectionPage.class);
         startActivity(in);
     }
 

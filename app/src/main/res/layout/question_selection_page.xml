@@ -22,7 +22,7 @@
         android:weightSum="1">
 
         <TextView
-            android:text="Welcome"
+            android:text="Question Page"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="normal|bold"
@@ -31,19 +31,9 @@
             android:id="@+id/welcomeText"
             android:gravity="center" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/player1name"
-            android:textStyle="normal|bold"
-            android:textAlignment="center"
-            android:textSize="36sp"
-            android:text="SinglePlayerName"
-            android:gravity="center" />
-        
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="10dp" />
 
         <Button
             android:text="Q1"
@@ -115,5 +105,19 @@
             android:textStyle="normal|bold"
             android:background="@android:color/holo_orange_light"
             android:textAlignment="center" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <Button
+            android:text="QUIT"
+            android:layout_height="wrap_content"
+            android:id="@+id/quitButton"
+            android:background="@android:color/holo_orange_light"
+            android:layout_width="100dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_gravity="center" />
     </LinearLayout>
 </RelativeLayout>

@@ -119,14 +119,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.09" />
 
-        <Button
-            android:text="Return to Question Menu"
-            android:layout_width="match_parent"
-            android:id="@+id/returnButton"
-            android:background="@android:color/holo_orange_light"
-            android:onClick="onClickReturn"
-            android:layout_height="50dp" />
-
     </LinearLayout>
 
 </LinearLayout>

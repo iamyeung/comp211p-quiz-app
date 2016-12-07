@@ -13,7 +13,7 @@ public class InputName extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_player_input_name);
+        setContentView(R.layout.input_name);
 
         final Button toQuestionPageButton;
         toQuestionPageButton = (Button) findViewById(R.id.toQuestionPageButton);
