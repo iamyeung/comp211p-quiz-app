@@ -1,6 +1,10 @@
 Changes made for Fragments. Uploaded December 17 2017
 
+Current way how the buttons work:
+Start Screen -> Single Player Button -> Input Name -> Start Button -> Fragment Screen (with Q1, Q2, Q3, Q4, Q5, Finish buttons) -> Finish Fragment -> Finish Button -> High Score Screen -> Finish Button -> Start Screen
+
 The Fragment Screen has replaced the Quiz Interface Screen
+0. I haven't deleted the Quiz Interface screen just yet (to save the code in case we want to refer back to the code). It still exists in the file. Some of the new changes may be confusing, but all the fragment stuff should be placed under a folder called MultiplePlayerFragment or something similar. 
 1. Consists of a TopBarFragment and the Other Fragment Screens
 2. Top Bar Fragment is a horizontal scroll bar that consists of Q1, Q2, Q3, Q4, Q5, Final
 3. The other fragment screens can be accessed from the horizontal scroll bar
