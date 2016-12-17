@@ -3,7 +3,11 @@
     <string name="action_settings">Settings</string>
     <string name="correctMessage">Correct!</string>
     <string name="incorrectMessage">Incorrect! The correct answer is...</string>
-    <string name="skipMessage">Question skipped.</string>
+    <string name="skipTo1Message">Skipped to Question 1</string>
+    <string name="skipTo2Message">Skipped to Question 2</string>
+    <string name="skipTo3Message">Skipped to Question 3</string>
+    <string name="skipTo4Message">Skipped to Question 4</string>
+    <string name="skipTo5Message">Skipped to Question 5</string>
     <string name="cheatMessage">The correct answer is...</string>
 
     <string name="Q1">The Great Wall Of China is visible from the moon.</string>

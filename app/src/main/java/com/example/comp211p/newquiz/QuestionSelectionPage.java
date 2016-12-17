@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class QuestionSelectionPage extends AppCompatActivity {
 
@@ -26,7 +25,7 @@ public class QuestionSelectionPage extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getApplicationContext(), QuizInterface.class);
+                Intent in = new Intent(getApplicationContext(), QuizInterface1.class);
                 startActivity(in);
             }
         });
@@ -35,7 +34,7 @@ public class QuestionSelectionPage extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getApplicationContext(), QuizInterface.class);
+                Intent in = new Intent(getApplicationContext(), QuizInterface1.class);
                 startActivity(in);
             }
         });
@@ -44,7 +43,7 @@ public class QuestionSelectionPage extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getApplicationContext(), QuizInterface.class);
+                Intent in = new Intent(getApplicationContext(), QuizInterface1.class);
                 startActivity(in);
             }
         });
@@ -53,7 +52,7 @@ public class QuestionSelectionPage extends AppCompatActivity {
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getApplicationContext(), QuizInterface.class);
+                Intent in = new Intent(getApplicationContext(), QuizInterface1.class);
                 startActivity(in);
             }
         });
@@ -62,11 +61,10 @@ public class QuestionSelectionPage extends AppCompatActivity {
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getApplicationContext(), QuizInterface.class);
+                Intent in = new Intent(getApplicationContext(), QuizInterface1.class);
                 startActivity(in);
             }
         });
-
 
         quitButton = (Button) findViewById(R.id.quitButton);
         quitButton.setOnClickListener(new View.OnClickListener() {
@@ -78,8 +76,4 @@ public class QuestionSelectionPage extends AppCompatActivity {
         });
     }
 
-    public void disableQuestion (int questionNumber)
-    {
-
-    }
 }

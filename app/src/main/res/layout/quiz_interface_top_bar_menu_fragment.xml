@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:orientation="horizontal" >
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="Q1"
+                android:id="@+id/question1"
+                android:background="@android:color/holo_orange_light"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:layout_width="60dp" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="Q2"
+                android:layout_height="30dp"
+                android:layout_width="60dp"
+                android:id="@+id/question2"
+                android:background="@android:color/holo_orange_light"
+                android:layout_weight="1" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="Q3"
+                android:layout_height="30dp"
+                android:layout_width="60dp"
+                android:id="@+id/question3"
+                android:background="@android:color/holo_orange_light"
+                android:layout_weight="1" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="Q4"
+                android:layout_height="30dp"
+                android:layout_width="60dp"
+                android:id="@+id/question4"
+                android:background="@android:color/holo_orange_light"
+                android:layout_weight="1" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="Q5"
+                android:layout_height="30dp"
+                android:layout_width="60dp"
+                android:id="@+id/question5"
+                android:background="@android:color/holo_orange_light"
+                android:layout_weight="1" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="Finish"
+                android:layout_height="30dp"
+                android:layout_width="60dp"
+                android:id="@+id/finishButton"
+                android:background="@android:color/holo_orange_light"
+                android:layout_weight="1" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <TextView
+        android:text="player1name"
+        android:layout_height="wrap_content"
+        android:id="@+id/player1name"
+        android:textSize="30sp"
+        android:textStyle="normal|bold"
+        android:layout_width="match_parent"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:layout_gravity="center" />
+
+</LinearLayout>

@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,10 +17,7 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-public class QuizInterface extends AppCompatActivity {
+public class QuizInterface1 extends AppCompatActivity {
 
     //declare all the buttons for use
     private Button trueButton;
@@ -46,7 +42,7 @@ public class QuizInterface extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.quiz_interface);
+        setContentView(R.layout.quiz_interface_1);
         findViewById(R.id.answerText).setVisibility(View.INVISIBLE); //the answer is initially invisible. revealAnswer() will reveal the answer
 
         //declare all the buttons by finding the relevant ID - the ID name is set in the .xml file
@@ -66,7 +62,7 @@ public class QuizInterface extends AppCompatActivity {
         trueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(QuizInterface.this, R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
+                Toast.makeText(QuizInterface1.this, R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 //all buttons will be set to false, such that none of them can be pressed anymore. they can only press return, or wait 3.5 seconds for the screen to return to question page
                 trueButton.setEnabled(false);
@@ -80,7 +76,7 @@ public class QuizInterface extends AppCompatActivity {
         falseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(QuizInterface.this, R.string.correctMessage, Toast.LENGTH_SHORT).show();
+                Toast.makeText(QuizInterface1.this, R.string.correctMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 //all buttons will be set to false, such that none of them can be pressed anymore. they can only press return, or wait 3.5 seconds for the screen to return to question page
                 trueButton.setEnabled(false);
@@ -94,7 +90,7 @@ public class QuizInterface extends AppCompatActivity {
         skipButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(QuizInterface.this, R.string.skipMessage, Toast.LENGTH_SHORT).show();
+                Toast.makeText(QuizInterface1.this, R.string.skipTo1Message, Toast.LENGTH_SHORT).show();
                 goToQuestionPage();
                 //there is no need to add a mHandler.postDelayed method here because the skip button will directly link you back to the Question Page
             }
@@ -102,7 +98,7 @@ public class QuizInterface extends AppCompatActivity {
         cheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(QuizInterface.this, R.string.cheatMessage, Toast.LENGTH_SHORT).show();
+                Toast.makeText(QuizInterface1.this, R.string.cheatMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 //all buttons will be set to false, such that none of them can be pressed anymore. they can only press return, or wait 3.5 seconds for the screen to return to question page
                 trueButton.setEnabled(false);

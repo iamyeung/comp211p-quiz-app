@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="@android:color/holo_blue_light"
+    android:gravity="center">
+
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="326dp"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:background="@android:color/holo_blue_light"
+        android:gravity="center">
+
+
+        <TextView
+            android:text="@string/Q1"
+            android:layout_width="match_parent"
+            android:id="@+id/questionText"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:fontFamily="casual"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="normal|bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.07" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <Button
+                android:text="TRUE"
+                android:layout_height="wrap_content"
+                android:id="@+id/trueButton"
+                android:background="@android:color/holo_orange_light"
+                android:onClick="onClickTrue"
+                android:enabled="true"
+                android:layout_weight="1"
+                android:layout_width="100dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="FALSE"
+                android:layout_height="wrap_content"
+                android:id="@+id/falseButton"
+                android:background="@android:color/holo_orange_light"
+                android:onClick="onClickFalse"
+                android:enabled="true"
+                android:layout_weight="1"
+                android:layout_width="100dp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.05" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <Button
+                android:text="CHEAT"
+                android:layout_height="wrap_content"
+                android:id="@+id/cheatButton"
+                android:background="@android:color/holo_orange_light"
+                android:onClick="onClickCheat"
+                android:enabled="true"
+                android:layout_weight="1"
+                android:layout_width="100dp" />
+
+            <Space
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="wrap_content" />
+
+            <Button
+                android:text="Skip"
+                android:layout_height="wrap_content"
+                android:id="@+id/skipButton"
+                android:background="@android:color/holo_orange_light"
+                android:onClick="onClickSkip"
+                android:enabled="true"
+                android:layout_weight="1"
+                android:layout_width="100dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_gravity="center" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.11" />
+
+        <TextView
+            android:text="@string/A1"
+            android:layout_width="match_parent"
+            android:id="@+id/answerText"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:fontFamily="casual"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="normal|bold"
+            android:layout_weight="0.17" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09" />
+
+    </LinearLayout>
+
+</LinearLayout>

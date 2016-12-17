@@ -34,7 +34,7 @@
             android:textStyle="normal|bold" />
 
         <TextView
-            android:text="TRUTHORFALSE"
+            android:text="TRUEORFALSE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/title2"
