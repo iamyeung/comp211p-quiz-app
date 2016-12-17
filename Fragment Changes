@@ -1,0 +1,28 @@
+Changes made for Fragments. Uploaded December 17 2017
+
+The Fragment Screen has replaced the Quiz Interface Screen
+1. Consists of a TopBarFragment and the Other Fragment Screens
+2. Top Bar Fragment is a horizontal scroll bar that consists of Q1, Q2, Q3, Q4, Q5, Final
+3. The other fragment screens can be accessed from the horizontal scroll bar
+4. If you press the skip button on Q1, it will jump to Q2. If you press the skip button on Q2 page, it will jump to Q3 page.
+If you press the skip button on Q5 page, it will jump back to Q1. (This will probably need to be fixed because the screen shouldn't be able
+to jump to a question page if the question has already been answered. If Q2 has already been answered, pressing skip on Q1 shouldn't
+allow you to jump to Q2)
+5. A score counter is present on every screen and it is made available to the public via a SharedPreferences method. This means it can be accessible by any of the fragments or classes and can be edited and retrieved.
+
+JT logic fixes for the top bar fragment
+1. JT still needs to fix how to prevent buttons from being pressed again on the Top bar fragment. The IF statement only works sometimes
+2. The score counter must be restarted every time the game restarts, otherwise the counter still works and is displayed in the high scores page.
+3. Need to come to consensus as to how to score points (True = +1 False = -1 Cheat = 0 or -2??)
+4. Need to sort out the skip button.
+
+Multiplayer game is now clarified after talking to Rae:
+1. Player 2 can play the game AFTER Player 1, so instead of having to switch phones immediately after answering each question, the game
+can begin AFTER player 1 has finished his game
+2. This means we just have to repeat the code such that the quiz interface is repeated after player 1 finishes
+3. No need to have player 2 answer a question after player 1. no need to have players alternating their roles.
+
+Left to do:
+1. Array sorting for the high scores page to display the previous scores
+2. Player 2 input name interface
+3. Player 2 quiz interface (shouldn't be hard b/c you just have to restart the code for player 1)
