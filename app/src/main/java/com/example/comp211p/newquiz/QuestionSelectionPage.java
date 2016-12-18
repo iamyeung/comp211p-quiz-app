@@ -66,14 +66,31 @@ public class QuestionSelectionPage extends AppCompatActivity {
             }
         });
 
-        quitButton = (Button) findViewById(R.id.quitButton);
+        /*quitButton = (Button) findViewById(R.id.quitButton);
         quitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(getApplicationContext(), StartScreen.class);
                 startActivity(in);
             }
-        });
+        });*/
+    }
+
+    public void goToScorePage()
+    {
+        //TODO
+        // will be accesses when logic says game is done
+    }
+
+    public void startPlayer2()
+    {
+        // TODO: REPEAT ALL QUESTIONS FOR PLAYER 2
+    }
+
+    public void disableButton(int num)
+    {
+        //TODO
+        // will be accessed when a question has been answered
     }
 
 }

@@ -1,24 +1,17 @@
 package com.example.comp211p.newquiz.quizInterfaceMultipleFragment;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.comp211p.newquiz.QuizApp;
 import com.example.comp211p.newquiz.R;
-import com.example.comp211p.newquiz.StartScreen;
 
 /**
  * Created by Spartan-JT on 13/12/2016.
@@ -68,14 +61,13 @@ public class QuizInterfaceTopBarMenuFragment extends Fragment{
         quizInterfaceMultipleFragment1 = new QuizInterfaceMultipleFragment1();
         commitTransaction (quizInterfaceMultipleFragment1);
 
-        TextView player1name  = (TextView)view.findViewById(R.id.player1name);
-        player1name.setText("Welcome " + QuizApp.singlePlayerName + "!");
 
-        final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        int p1q1answer = app_preferences.getInt("p1_answer_value1", 0);
-        if (p1q1answer == 1)
-        {
-            Q1.setEnabled(false);
+        TextView playerName  = (TextView)view.findViewById(R.id.playerName);
+        QuizApp logic = (QuizApp) getContext();
+        if(logic.isPlayer1Active()) {
+            playerName.setText("Welcome " + logic.p1.getName() + "!");
+        } else {
+            playerName.setText("Welcome " + logic.p2.getName() + "!");
         }
 
         //when click button 1, it will go to QuizInterfaceMultipleFragment1
@@ -134,6 +126,11 @@ public class QuizInterfaceTopBarMenuFragment extends Fragment{
     public void onActivityCreated (Bundle savedInstanceState)
     {
         super.onActivityCreated(savedInstanceState);
+    }
+
+    public void disableButton(int num)
+    {
+        //TODO
     }
 
 }

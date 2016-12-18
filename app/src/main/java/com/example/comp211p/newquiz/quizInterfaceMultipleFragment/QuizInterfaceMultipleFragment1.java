@@ -66,25 +66,25 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
         trueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
-                incorrectAnswer();
+                //incorrectAnswer();
             }
         });
         falseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), R.string.correctMessage, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), R.string.correctMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
-                correctAnswer();
+                //correctAnswer();
             }
         });
         skipButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), R.string.skipTo2Message, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), R.string.skipTo2Message, Toast.LENGTH_SHORT).show();
                 quizInterfaceMultipleFragment2 = new QuizInterfaceMultipleFragment2();
                 fragTransaction = getFragmentManager().beginTransaction().add(R.id.container, quizInterfaceMultipleFragment2);
                 fragTransaction.commit();
@@ -93,10 +93,10 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
         cheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), R.string.cheatMessage, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), R.string.cheatMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
-                cheatAnswer();
+                //cheatAnswer();
             }
         });
     }
@@ -116,7 +116,7 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
         skipButton.setEnabled(false);
     }
 
-    public void correctAnswer() {
+    /*public void correctAnswer() {
         SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         SharedPreferences.Editor editor = app_preferences.edit();
         editor.putInt("p1_answer_value1", 1);
@@ -135,6 +135,6 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
         SharedPreferences.Editor editor = app_preferences.edit();
         editor.putInt("p1_answer_value1", -1);
         editor.commit();
-    }
+    }*/
 
 }

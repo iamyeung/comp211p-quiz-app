@@ -1,0 +1,125 @@
+[33mcommit 620084cdfb4f43fa56093a1b6768aabecd9cb1c3[m
+Author: iamyeung <zcbtjye@ucl.ac.uk>
+Date:   Sat Dec 17 14:08:32 2016 +0000
+
+    Update Fragment Changes December 17 2017
+
+[33mcommit 680f650714a92704f121c42cf83f1708545f5a7a[m
+Author: iamyeung <zcbtjye@ucl.ac.uk>
+Date:   Sat Dec 17 14:04:29 2016 +0000
+
+    Rename Fragment Changes to Fragment Changes December 17 2017
+
+[33mcommit e2303bd0e8cb4f2fdd38239e1fbed949a08eec5b[m
+Author: iamyeung <zcbtjye@ucl.ac.uk>
+Date:   Sat Dec 17 14:03:52 2016 +0000
+
+    Major Fragment Changes
+    
+    Changes and listed the stuff left to do.
+
+[33mcommit 1eaf5fab729476ba9272a9bf928975a0f1769350[m
+Author: iamyeung <junting.yeung@gmail.com>
+Date:   Sat Dec 17 13:48:15 2016 +0000
+
+    quiz fragments
+
+[33mcommit 2e30b0fc8ed71aceed55efbc9067a09e507ab0ac[m
+Author: iamyeung <junting.yeung@gmail.com>
+Date:   Wed Dec 7 12:09:58 2016 +0000
+
+    Add High Score Page, make formatting changes agreed on Tuesday December 1 2016
+
+[33mcommit 8b582e47d8d851620b2f6d448f5c2e92a1f8e566[m
+Author: annetteloidolt <annette.loidolt.14@ucl.ac.uk>
+Date:   Sun Dec 4 23:38:21 2016 +0000
+
+    Added some player logic and renamed classes sensibly.
+
+[33mcommit 59a48e87e935f50a19fa8660f267c33053cb9edb[m
+Author: iamyeung <zcbtjye@ucl.ac.uk>
+Date:   Wed Nov 30 17:17:09 2016 +0000
+
+    Update README.md
+
+[33mcommit 3698d6b6a1fab6de3bf0dd582dce7979bc350da6[m
+Author: iamyeung <zcbtjye@ucl.ac.uk>
+Date:   Wed Nov 30 17:16:30 2016 +0000
+
+    Changes and Tasks for Annette
+
+[33mcommit 953ae0aceb432815c38d9151682794373b1067b0[m
+Author: iamyeung <junting.yeung@gmail.com>
+Date:   Wed Nov 30 17:04:48 2016 +0000
+
+    Quiz Interface changes made
+
+[33mcommit 8fb94fbe98ec303f41e25f43f04b65d2b04faa71[m
+Merge: ac16cdf a06a33e
+Author: iamyeung <junting.yeung@gmail.com>
+Date:   Wed Nov 30 14:27:06 2016 +0000
+
+    Merge branch 'master' of https://github.com/iamyeung/comp211p-quiz-app
+
+[33mcommit ac16cdf57881542381eeca40395571848323009a[m
+Author: iamyeung <junting.yeung@gmail.com>
+Date:   Wed Nov 30 14:23:18 2016 +0000
+
+    Following changes have been made. 1. you will automatically go back to question page after answering question in 3.5 seconds. 2. all buttons are disabled from pressing after chossing one button in the button interface. 3. name can be registered from the initial screen, and a personal greeting is made in the subsequent question page.
+
+[33mcommit a06a33e2c299196098f6d27c542499a1d6e537c6[m
+Author: annetteloidolt <annette.loidolt.14@ucl.ac.uk>
+Date:   Wed Nov 30 09:38:05 2016 +0000
+
+    annette added something
+
+[33mcommit 680de4b764af8037e71b161e06f821f5ba930fd5[m
+Merge: 092984a e006822
+Author: iamyeung <zcbtjye@ucl.ac.uk>
+Date:   Tue Nov 29 17:56:14 2016 +0000
+
+    Merge pull request #1 from iamyeung/iamyeung-add-readme
+    
+    Create Readme Flie
+
+[33mcommit e006822729428582bf1ab36f119f4ed29af8ff43[m
+Author: iamyeung <zcbtjye@ucl.ac.uk>
+Date:   Tue Nov 29 17:49:50 2016 +0000
+
+    Create Readme Flie
+
+[33mcommit 092984a24440d99ef56f0801372c82fbcdecb533[m
+Author: iamyeung <junting.yeung@gmail.com>
+Date:   Tue Nov 29 17:44:26 2016 +0000
+
+    deleted .c tracking
+
+[33mcommit 5dd5e5be9b818803d5327da15e410cf4de61439e[m
+Author: Wayne Tsui <tsuiwwwayne@hotmail.com>
+Date:   Tue Nov 29 17:42:27 2016 +0000
+
+    added .c ignore
+
+[33mcommit 0b6dc6ae7dca675515361aaac94b8066c946a74d[m
+Author: iamyeung <junting.yeung@gmail.com>
+Date:   Tue Nov 29 17:23:08 2016 +0000
+
+    first commit
+
+[33mcommit f3bff6f400dd6a1dbe715de38b9d5761c3e929a6[m
+Author: iamyeung <junting.yeung@gmail.com>
+Date:   Tue Nov 29 16:53:36 2016 +0000
+
+    first commit
+
+[33mcommit ea1c4591452860b6a7ddfded954b32566808c849[m
+Author: iamyeung <junting.yeung@gmail.com>
+Date:   Tue Nov 29 16:46:58 2016 +0000
+
+    first commit
+
+[33mcommit d5246714b4fbdf2620e3b06b4d26156280dd195f[m
+Author: iamyeung <junting.yeung@gmail.com>
+Date:   Tue Nov 29 16:30:43 2016 +0000
+
+    First commit

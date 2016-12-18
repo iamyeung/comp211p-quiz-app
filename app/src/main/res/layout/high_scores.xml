@@ -32,7 +32,7 @@
             <TextView
                 android:text=" "
                 android:layout_height="wrap_content"
-                android:id="@+id/player1name"
+                android:id="@+id/playerName"
                 android:textSize="20sp"
                 android:textStyle="normal|bold"
                 android:layout_alignParentTop="true"
@@ -48,8 +48,8 @@
             android:textSize="20sp"
             android:textStyle="normal|bold"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/player1name"
-            android:layout_toEndOf="@+id/player1name"
+            android:layout_toRightOf="@+id/playerName"
+            android:layout_toEndOf="@+id/playerName"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
                 android:layout_weight="0.25" />

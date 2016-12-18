@@ -22,10 +22,17 @@ public class InputName extends AppCompatActivity {
 
         toQuestionPageButton.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {
-                String singlePlayerName = ((EditText)findViewById(R.id.singlePlayerName)).getText().toString();
-                QuizApp.singlePlayerName = singlePlayerName;
-                Intent in = new Intent(getBaseContext(), QuizInterfaceMultipleFragment.class);
-                startActivity(in);
+                String playerName = ((EditText)findViewById(R.id.singlePlayerName)).getText().toString();
+                QuizApp logic = (QuizApp) getApplicationContext();
+                logic.addPlayer(playerName);
+                //deprecated: do not use static vars
+                //QuizApp.playerName = playerName;
+                if(logic.getIsSinglePlayer()) {
+                    Intent in = new Intent(getBaseContext(), QuizInterfaceMultipleFragment.class);
+                    startActivity(in);
+                } else {
+                    // TODO: repeat input name for player 2
+                }
             }
         });
     }
