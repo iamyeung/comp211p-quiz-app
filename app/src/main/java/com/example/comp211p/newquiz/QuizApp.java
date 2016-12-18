@@ -2,6 +2,7 @@ package com.example.comp211p.newquiz;
 
 import android.app.Application;
 
+import java.lang.reflect.Array;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
@@ -12,6 +13,7 @@ public class QuizApp extends Application {
     private boolean player1Active;
     private boolean isSinglePlayer;
     private LinkedList<Player> history;
+    private Question[] questions;
 
     public void startSinglePlayer()
     {
@@ -56,13 +58,38 @@ public class QuizApp extends Application {
 
     public void addPlayer(String name)
     {
-        // if single player add new player 1 if not yet exists
-        if (this.isSinglePlayer && this.p1 == null) {
+        // player 1 does not exist yet
+        if (this.p1 == null) {
+            // make new player 1
             namePlayer(1, name);
-        // if multiplayer add new player 2 if not yet exists
-        } else if (!this.isSinglePlayer){
+        // player 1 already exists and game is multiplayer and player 2 not yet defined
+        }
+        else if (!this.isSinglePlayer && this.p2 == null)
+        {
             namePlayer(2, name);
         }
+    }
+
+    public boolean answerQuestion(int questionNumber)
+    {
+        if (questionNumber>=0 && questionNumber<=5)
+        {
+            // player 1 is playing
+            if (isPlayer1Active()) {
+
+            }
+            // player 2 is playing
+            else
+            {
+
+            }
+        }
+        else
+        {
+            return false;
+        }
+        // TODO: remove
+        return false;
     }
 
     public void addToPlayerHistory(Player p)
@@ -70,11 +97,46 @@ public class QuizApp extends Application {
         this.history.addFirst(p);
     }
 
+    public Player[] getPlayerHistory(int count)
+    {
+        if (count>=0) {
+            Player[] players = new Player[count];
+            for (int i=0; i<=count-1; i++)
+            {
+                players[i] = this.history.get(i);
+            }
+            return players;
+        }
+        return new Player[0];
+    }
+
     QuizApp ()
     {
         super();
         this.isSinglePlayer = true;
         this.history = new LinkedList<Player>();
+        this.questions = new Question[5];
+        // Load all questions from resources
+        questions[0] = new Question(
+                getResources().getString(R.string.Q1),
+                getResources().getString(R.string.A1),
+                getResources().getBoolean(R.bool.T1));
+        questions[1] = new Question(
+                getResources().getString(R.string.Q2),
+                getResources().getString(R.string.A2),
+                getResources().getBoolean(R.bool.T2));
+        questions[2] = new Question(
+                getResources().getString(R.string.Q3),
+                getResources().getString(R.string.A3),
+                getResources().getBoolean(R.bool.T3));
+        questions[3] = new Question(
+                getResources().getString(R.string.Q4),
+                getResources().getString(R.string.A4),
+                getResources().getBoolean(R.bool.T4));
+        questions[4] = new Question(
+                getResources().getString(R.string.Q5),
+                getResources().getString(R.string.A5),
+                getResources().getBoolean(R.bool.T5));
     }
 
     /*

@@ -28,6 +28,9 @@ public class StartScreen extends AppCompatActivity {
         singlePlayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                QuizApp logic = (QuizApp) getApplicationContext();
+                // start game in single-player mode
+                logic.startSinglePlayer();
                 Intent in = new Intent(getApplicationContext(), InputName.class);
                 startActivity(in);
             }
@@ -37,6 +40,9 @@ public class StartScreen extends AppCompatActivity {
         twoPlayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                QuizApp logic = (QuizApp) getApplicationContext();
+                // start game in multi-player mode
+                logic.startMultiPlayer();
                 Intent in = new Intent(getApplicationContext(), InputName.class);
                 startActivity(in);
             }

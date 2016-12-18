@@ -43,7 +43,7 @@ public class HighScores extends AppCompatActivity {
     {
         // TODO
         // get table: display names and scores from player array
-        for (int i=0; i>players.length-1; i++){
+        for (int i=0; i<=players.length-1; i++){
              //players[i].getName();
             //players.[i].getScore();
         }

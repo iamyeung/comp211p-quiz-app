@@ -24,9 +24,10 @@ public class InputName extends AppCompatActivity {
             public void onClick(View view) {
                 String playerName = ((EditText)findViewById(R.id.singlePlayerName)).getText().toString();
                 QuizApp logic = (QuizApp) getApplicationContext();
+                // adds player to the game: if player 1 already exists and game is in multi-player
+                // mode, this adds player 2
                 logic.addPlayer(playerName);
-                //deprecated: do not use static vars
-                //QuizApp.playerName = playerName;
+
                 if(logic.getIsSinglePlayer()) {
                     Intent in = new Intent(getBaseContext(), QuizInterfaceMultipleFragment.class);
                     startActivity(in);

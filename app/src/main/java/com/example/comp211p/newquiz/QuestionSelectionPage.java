@@ -82,15 +82,28 @@ public class QuestionSelectionPage extends AppCompatActivity {
         // will be accesses when logic says game is done
     }
 
+    /**
+     * Repeats the game for player 2. Starts by going to the Question Selection page.
+     */
     public void startPlayer2()
     {
-        // TODO: REPEAT ALL QUESTIONS FOR PLAYER 2
+        QuizApp logic = (QuizApp) getApplicationContext();
+        // switch from player 1 to player 2
+        logic.switchPlayer();
+
+        // TODO: REPEAT ALL QUESTIONS FOR PLAYER 2 (go to question selection page)
     }
 
+    /**
+     * Disables one of the five question buttons (should be used when question is already answered)
+     * @param num Number of the question button to be disabled: 1-5
+     */
     public void disableButton(int num)
     {
-        //TODO
-        // will be accessed when a question has been answered
+        if (num>=0 && num <= 5) {
+            //TODO
+            // will be accessed when a question has been answered
+        }
     }
 
 }
