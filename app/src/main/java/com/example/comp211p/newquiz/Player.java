@@ -10,6 +10,7 @@ public class Player {
     private String name;
     private int score;
     private HashSet<Integer> questionsAnswered;
+    //to keep track of questions that the player has answered
 
     Player(String name)
     {
@@ -33,6 +34,11 @@ public class Player {
         this.score += 1;
     }
 
+    /**
+     * add score point if question is answered correctly
+     * @param num - number of question (0-5)
+     * @param correct - if question is answered correctly
+     */
     public void answerQuestion(int num, boolean correct)
     {
         if (correct) {
@@ -45,4 +51,15 @@ public class Player {
     {
         return this.questionsAnswered;
     }
+
+    /**
+     * based on num tells you whether question has already been answered
+     * @param num - number of question
+     * @return - true if already answered
+     */
+    public boolean hasAnsweredQuestion(int num)
+    {
+        return (this.questionsAnswered.contains(num));
+    }
+
 }

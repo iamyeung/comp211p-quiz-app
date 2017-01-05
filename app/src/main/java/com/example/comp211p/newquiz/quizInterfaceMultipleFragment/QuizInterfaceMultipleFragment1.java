@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.comp211p.newquiz.QuestionSelectionPage;
+import com.example.comp211p.newquiz.QuizApp;
 import com.example.comp211p.newquiz.QuizInterface1;
 import com.example.comp211p.newquiz.R;
 import com.google.android.gms.appindexing.Action;
@@ -66,6 +67,8 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
         trueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // TODO: get game logic and answer question
+
                 //Toast.makeText(getActivity(), R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();

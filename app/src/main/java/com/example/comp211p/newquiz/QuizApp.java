@@ -13,6 +13,7 @@ public class QuizApp extends Application {
     private boolean player1Active;
     private boolean isSinglePlayer;
     private LinkedList<Player> history;
+    //history of recent players
     private Question[] questions;
 
     public void startSinglePlayer()
@@ -72,24 +73,39 @@ public class QuizApp extends Application {
 
     public boolean answerQuestion(int questionNumber)
     {
-        if (questionNumber>=0 && questionNumber<=5)
+        if (questionNumber>=1 && questionNumber<=5)
         {
+            boolean correct = this.questions[questionNumber-1].isTrue();
             // player 1 is playing
             if (isPlayer1Active()) {
-
+                p1.answerQuestion(questionNumber, correct);
             }
             // player 2 is playing
             else
             {
-
+                p2.answerQuestion(questionNumber, correct);
             }
+            return correct;
         }
         else
         {
             return false;
         }
-        // TODO: remove
-        return false;
+    }
+
+    public boolean hasAnsweredQuestion(int questionNumber)
+    {
+        if (questionNumber>=1 && questionNumber<=5)
+        {
+            if (isPlayer1Active())
+            {
+                return p1.hasAnsweredQuestion(questionNumber);
+            } else {
+                return p2.hasAnsweredQuestion(questionNumber);
+            }
+        } else {
+            return false;
+        }
     }
 
     public void addToPlayerHistory(Player p)

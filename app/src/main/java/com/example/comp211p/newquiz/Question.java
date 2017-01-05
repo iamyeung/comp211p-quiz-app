@@ -15,4 +15,19 @@ public class Question {
         this.a = a;
         this.t = t;
     }
+
+    public boolean isTrue()
+    {
+        return this.t;
+    }
+
+    public String getQuestion()
+    {
+        return this.q;
+    }
+
+    public String getAnswer()
+    {
+        return this.a;
+    }
 }

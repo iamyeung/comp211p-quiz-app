@@ -74,6 +74,15 @@ public class QuestionSelectionPage extends AppCompatActivity {
                 startActivity(in);
             }
         });*/
+
+        // disable buttons if questions have been answered
+        QuizApp logic = (QuizApp) getApplicationContext();
+        // check which questions the active players has already answered
+        if (logic.hasAnsweredQuestion(1)) button1.setEnabled(false);
+        if (logic.hasAnsweredQuestion(2)) button2.setEnabled(false);
+        if (logic.hasAnsweredQuestion(3)) button3.setEnabled(false);
+        if (logic.hasAnsweredQuestion(4)) button4.setEnabled(false);
+        if (logic.hasAnsweredQuestion(5)) button5.setEnabled(false);
     }
 
     public void goToScorePage()
