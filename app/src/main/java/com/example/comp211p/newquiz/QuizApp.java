@@ -1,12 +1,13 @@
 package com.example.comp211p.newquiz;
 
 import android.app.Application;
+import android.content.SharedPreferences;
 
-import java.lang.reflect.Array;
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
 public class QuizApp extends Application {
+    public static final String PREF_FILE = "COMP211p.QUIZAPP";
+
     public Player p1;
     public Player p2;
     private boolean player1Active;
@@ -22,7 +23,7 @@ public class QuizApp extends Application {
         super();
         this.isSinglePlayer = true;
         this.player1Active = true;
-        this.history = new LinkedList<Player>();
+        loadHistory();
         this.gameOver = false;
 
         this.currentQuestion = 0;
@@ -102,7 +103,7 @@ public class QuizApp extends Application {
         // name player 1
         if (pnum==1){
             p1 = new Player(name);
-        // name player 2 (multiplayer)
+        // name player 2 (multi-player)
         } else if (!this.isSinglePlayer && pnum==2) {
             p2 = new Player(name);
         }
@@ -186,14 +187,18 @@ public class QuizApp extends Application {
         // current player has already answered all questions
         if (isPlayerDone(getActivePlayer()))
         {
-            // inactive player is also finished
-            if (isPlayerDone(getInactivePlayer()))
+            if (getIsSinglePlayer())
             {
-                // set flag for gameOver and add players to history
                 gameOver();
-            // if current player is done but other one not - switch player
             } else {
-                switchPlayer();
+                // inactive player is also finished
+                if (isPlayerDone(getInactivePlayer())) {
+                    // set flag for gameOver and add players to history
+                    gameOver();
+                    // if current player is done but other one not - switch player
+                } else {
+                    switchPlayer();
+                }
             }
         }
     }
@@ -232,10 +237,46 @@ public class QuizApp extends Application {
     public void addToPlayerHistory(Player p)
     {
         this.history.addFirst(p);
+        saveHistory();
+    }
+
+    private void saveHistory()
+    {
+        // player history encoded as a String: ';' separates names from values, '&' separates players
+        String historyEnc = "";
+        for (Player p : this.history)
+        {
+            historyEnc += p.getName() + ";" + p.getScore() + "&";
+        }
+        // remove '&' at end of string
+        historyEnc = historyEnc.substring(0,historyEnc.length()-2);
+
+        SharedPreferences.Editor editor = getSharedPreferences(PREF_FILE, MODE_PRIVATE).edit();
+        editor.putString("history", historyEnc);
+        editor.apply();
+    }
+
+    private void loadHistory()
+    {
+        SharedPreferences prefs = getSharedPreferences(PREF_FILE, MODE_PRIVATE);
+        String historyEnc = prefs.getString("history", null);
+        if (historyEnc != null) {
+            // split encoded String into Player strings ("Name;Score") pStr
+            String[] playersStr = historyEnc.split("&");
+            if (this.history == null) this.history = new LinkedList<Player>();
+            for (String pStr : playersStr)
+            {
+                String[] pStrArray = pStr.split(";");
+                this.history.addLast(new Player(pStrArray[0], Integer.parseInt(pStrArray[1])));
+            }
+        } else {
+            if (this.history == null) this.history = new LinkedList<Player>();
+        }
     }
 
     public Player[] getPlayerHistory(int count)
     {
+        loadHistory();
         if (count>=0) {
             Player[] players = new Player[count];
             for (int i=0; i<=count-1; i++)

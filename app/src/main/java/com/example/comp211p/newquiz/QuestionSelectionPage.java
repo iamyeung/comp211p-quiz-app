@@ -100,7 +100,7 @@ public class QuestionSelectionPage extends AppCompatActivity {
     public void goToScorePage()
     {
         //TODO
-        // will be accesses when logic says game is done
+        // will be accessed when logic says game is done
     }
 
     /**
