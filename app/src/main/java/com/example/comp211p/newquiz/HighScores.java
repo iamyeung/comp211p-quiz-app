@@ -36,7 +36,15 @@ public class HighScores extends AppCompatActivity {
         });
 
         QuizApp logic = (QuizApp) getApplicationContext();
-        displayScore1(logic.p1.getName(), logic.p1.getScore());
+        if (logic.p1 != null)
+        {
+            displayScore1(logic.p1.getName(), logic.p1.getScore());
+        }
+        if (!logic.getIsSinglePlayer() && logic.p2 != null)
+        {
+            displayScore2(logic.p2.getName(), logic.p2.getScore());
+        }
+        displayAllScores(logic.getPlayerHistory(5));
     }
 
     public void displayAllScores(Player[] players)

@@ -7,7 +7,6 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
 public class QuizApp extends Application {
-
     public Player p1;
     public Player p2;
     private boolean player1Active;
@@ -15,15 +14,61 @@ public class QuizApp extends Application {
     private LinkedList<Player> history;
     //history of recent players
     private Question[] questions;
+    private int currentQuestion;
+    private boolean gameOver;
+
+    QuizApp ()
+    {
+        super();
+        this.isSinglePlayer = true;
+        this.player1Active = true;
+        this.history = new LinkedList<Player>();
+        this.gameOver = false;
+
+        this.currentQuestion = 0;
+        this.questions = new Question[5];
+        // Load all questions from resources
+        questions[0] = new Question(
+                getResources().getString(R.string.Q1),
+                getResources().getString(R.string.A1),
+                getResources().getBoolean(R.bool.T1));
+        questions[1] = new Question(
+                getResources().getString(R.string.Q2),
+                getResources().getString(R.string.A2),
+                getResources().getBoolean(R.bool.T2));
+        questions[2] = new Question(
+                getResources().getString(R.string.Q3),
+                getResources().getString(R.string.A3),
+                getResources().getBoolean(R.bool.T3));
+        questions[3] = new Question(
+                getResources().getString(R.string.Q4),
+                getResources().getString(R.string.A4),
+                getResources().getBoolean(R.bool.T4));
+        questions[4] = new Question(
+                getResources().getString(R.string.Q5),
+                getResources().getString(R.string.A5),
+                getResources().getBoolean(R.bool.T5));
+    }
 
     public void startSinglePlayer()
     {
         isSinglePlayer = true;
+        initGame();
     }
 
     public void startMultiPlayer()
     {
         isSinglePlayer = false;
+        initGame();
+    }
+
+    private void initGame()
+    {
+        this.gameOver = false;
+        this.p1 = null;
+        this.p2 = null;
+        this.player1Active = true;
+        this.currentQuestion = 0;
     }
 
     public boolean getIsSinglePlayer()
@@ -35,6 +80,12 @@ public class QuizApp extends Application {
     {
         return player1Active;
     }
+
+    public int getActivePlayer() { return (isPlayer1Active() ? 1 : 2); }
+
+    public int getInactivePlayer() { return (isPlayer1Active() ? 2 : 1); }
+
+    public boolean isGameOver() { return this.gameOver; }
 
     public void switchPlayer()
     {
@@ -71,26 +122,44 @@ public class QuizApp extends Application {
         }
     }
 
-    public boolean answerQuestion(int questionNumber)
+    public int getCurrentQuestion()
     {
-        if (questionNumber>=1 && questionNumber<=5)
-        {
-            boolean correct = this.questions[questionNumber-1].isTrue();
-            // player 1 is playing
-            if (isPlayer1Active()) {
-                p1.answerQuestion(questionNumber, correct);
-            }
-            // player 2 is playing
-            else
-            {
-                p2.answerQuestion(questionNumber, correct);
-            }
-            return correct;
+        return this.currentQuestion;
+    }
+
+    public void setCurrentQuestion(int questionNumber)
+    {
+        if (questionNumber>=1 && questionNumber<=5) {
+            this.currentQuestion = questionNumber;
         }
+    }
+
+    public void answerQuestion(boolean answerTrue)
+    {
+        int questionNumber = this.getCurrentQuestion();
+        boolean correct = (this.questions[questionNumber-1].isTrue() == answerTrue);
+        // player 1 is playing
+        if (isPlayer1Active()) {
+            p1.answerQuestion(questionNumber, correct);
+        }
+        // player 2 is playing
         else
         {
-            return false;
+            p2.answerQuestion(questionNumber, correct);
         }
+        checkProgress();
+    }
+
+    public void cheatQuestion()
+    {
+        int questionNumber = this.getCurrentQuestion();
+        // player 1 is playing
+        if (isPlayer1Active()) {
+            p1.answerQuestion(questionNumber, false);
+        } else {
+            p2.answerQuestion(questionNumber, false);
+        }
+        checkProgress();
     }
 
     public boolean hasAnsweredQuestion(int questionNumber)
@@ -108,6 +177,58 @@ public class QuizApp extends Application {
         }
     }
 
+    /**
+     * Switches active player if one player has answered all questions.
+     * If both players have answered all questions, the game is ended.
+     */
+    private void checkProgress()
+    {
+        // current player has already answered all questions
+        if (isPlayerDone(getActivePlayer()))
+        {
+            // inactive player is also finished
+            if (isPlayerDone(getInactivePlayer()))
+            {
+                // set flag for gameOver and add players to history
+                gameOver();
+            // if current player is done but other one not - switch player
+            } else {
+                switchPlayer();
+            }
+        }
+    }
+
+    public boolean isPlayerDone(int playerNum)
+    {
+        if (playerNum == 1)
+        {
+            if (this.p1.getQuestionsAnswered().size() == this.questions.length)
+            {
+                return true;
+            }
+        } else if (playerNum == 2) {
+            if (this.p2.getQuestionsAnswered().size() == this.questions.length)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void gameOver()
+    {
+        if (!isGameOver()) {
+            this.gameOver = true;
+            addToPlayerHistory(this.p2);
+            addToPlayerHistory(this.p1);
+        }
+    }
+
+    /**
+     * Adds to recent players to be displayed on "high score" page.
+     * New additions are displayed first.
+     * @param p Player to be added to history.
+     */
     public void addToPlayerHistory(Player p)
     {
         this.history.addFirst(p);
@@ -126,34 +247,7 @@ public class QuizApp extends Application {
         return new Player[0];
     }
 
-    QuizApp ()
-    {
-        super();
-        this.isSinglePlayer = true;
-        this.history = new LinkedList<Player>();
-        this.questions = new Question[5];
-        // Load all questions from resources
-        questions[0] = new Question(
-                getResources().getString(R.string.Q1),
-                getResources().getString(R.string.A1),
-                getResources().getBoolean(R.bool.T1));
-        questions[1] = new Question(
-                getResources().getString(R.string.Q2),
-                getResources().getString(R.string.A2),
-                getResources().getBoolean(R.bool.T2));
-        questions[2] = new Question(
-                getResources().getString(R.string.Q3),
-                getResources().getString(R.string.A3),
-                getResources().getBoolean(R.bool.T3));
-        questions[3] = new Question(
-                getResources().getString(R.string.Q4),
-                getResources().getString(R.string.A4),
-                getResources().getBoolean(R.bool.T4));
-        questions[4] = new Question(
-                getResources().getString(R.string.Q5),
-                getResources().getString(R.string.A5),
-                getResources().getBoolean(R.bool.T5));
-    }
+
 
     /*
     public static String singlePlayerName;
