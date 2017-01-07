@@ -119,25 +119,4 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
         skipButton.setEnabled(false);
     }
 
-    /*public void correctAnswer() {
-        SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        SharedPreferences.Editor editor = app_preferences.edit();
-        editor.putInt("p1_answer_value1", 1);
-        editor.commit();
-    }
-
-    public void incorrectAnswer() {
-        SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        SharedPreferences.Editor editor = app_preferences.edit();
-        editor.putInt("p1_answer_value1", -1);
-        editor.commit();
-    }
-
-    public void cheatAnswer() {
-        SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        SharedPreferences.Editor editor = app_preferences.edit();
-        editor.putInt("p1_answer_value1", -1);
-        editor.commit();
-    }*/
-
 }

@@ -37,9 +37,6 @@ public class QuizInterfaceMultipleFragment3 extends Fragment {
     public QuizInterfaceMultipleFragment3() {
     }
 
-    Fragment quizInterfaceMultipleFragment4;
-    FragmentTransaction fragTransaction;
-    private Button Q3;
     private Button trueButton;
     private Button falseButton;
     private Button skipButton;
@@ -55,7 +52,6 @@ public class QuizInterfaceMultipleFragment3 extends Fragment {
         View rootView = inflater.inflate(R.layout.quiz_interface_multiple_fragment_3, container, false);
 
         View view = inflater.inflate(R.layout.quiz_interface_top_bar_menu_fragment, container, false);
-        Q3 = (Button)view.findViewById(R.id.question3);
         //declare all the buttons by finding the relevant ID - the ID name is set in the .xml file
 
         trueButton = (Button) rootView.findViewById(R.id.trueButton);
@@ -77,7 +73,6 @@ public class QuizInterfaceMultipleFragment3 extends Fragment {
                 Toast.makeText(getActivity(), R.string.correctMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
-                correctAnswer();
             }
         });
         falseButton.setOnClickListener(new View.OnClickListener() {
@@ -86,16 +81,6 @@ public class QuizInterfaceMultipleFragment3 extends Fragment {
                 Toast.makeText(getActivity(), R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
-                incorrectAnswer();
-            }
-        });
-        skipButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), R.string.skipTo4Message, Toast.LENGTH_SHORT).show();
-                quizInterfaceMultipleFragment4 = new QuizInterfaceMultipleFragment4();
-                fragTransaction = getFragmentManager().beginTransaction().add(R.id.container, quizInterfaceMultipleFragment4);
-                fragTransaction.commit();
             }
         });
         cheatButton.setOnClickListener(new View.OnClickListener() {
@@ -104,7 +89,6 @@ public class QuizInterfaceMultipleFragment3 extends Fragment {
                 Toast.makeText(getActivity(), R.string.cheatMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
-                cheatAnswer();
             }
         });
     }
@@ -122,26 +106,5 @@ public class QuizInterfaceMultipleFragment3 extends Fragment {
         falseButton.setEnabled(false);
         cheatButton.setEnabled(false);
         skipButton.setEnabled(false);
-    }
-
-    public void correctAnswer() {
-        final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        SharedPreferences.Editor editor = app_preferences.edit();
-        editor.putInt("p1_answer_value3", 1);
-        editor.commit();
-    }
-
-    public void incorrectAnswer() {
-        final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        SharedPreferences.Editor editor = app_preferences.edit();
-        editor.putInt("p1_answer_value3", 0);
-        editor.commit();
-    }
-
-    public void cheatAnswer() {
-        final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        SharedPreferences.Editor editor = app_preferences.edit();
-        editor.putInt("p1_answer_value3", -1);
-        editor.commit();
     }
 }
