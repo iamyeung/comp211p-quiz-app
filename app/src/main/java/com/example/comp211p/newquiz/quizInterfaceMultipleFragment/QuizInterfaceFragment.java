@@ -22,10 +22,6 @@ import com.example.comp211p.newquiz.R;
  */
 
 public class QuizInterfaceFragment extends Fragment {
-
-    public QuizInterfaceFragment() {
-    }
-
     private Handler mHandler = new Handler();
     private Runnable mLaunchTask = new Runnable () {
         public void run() {
@@ -38,6 +34,9 @@ public class QuizInterfaceFragment extends Fragment {
     private Button skipButton;
     private Button cheatButton;
     private TextView answerText;
+
+    public QuizInterfaceFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -62,8 +61,12 @@ public class QuizInterfaceFragment extends Fragment {
     }
 
     public void goToQuestionPage() {
-        Intent in = new Intent(getContext().getApplicationContext(), QuestionSelectionPage.class);
-        startActivity(in);
+        try{
+            Intent in = new Intent(getContext().getApplicationContext(), QuestionSelectionPage.class);
+            startActivity(in);
+        } catch (NullPointerException npe) {
+
+        }
     }
 
     public void selectedButton() {

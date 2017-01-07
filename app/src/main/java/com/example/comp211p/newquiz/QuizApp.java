@@ -118,15 +118,18 @@ public class QuizApp extends Application {
 
     public void addPlayer(String name)
     {
-        // player 1 does not exist yet
-        if (this.p1 == null) {
+        // single player
+        if (this.isSinglePlayer) {
             // make new player 1
             namePlayer(1, name);
-        // player 1 already exists and game is multiplayer and player 2 not yet defined
-        }
-        else if (!this.isSinglePlayer && this.p2 == null)
-        {
-            namePlayer(2, name);
+        // two player
+        } else {
+            // player 1 does not exist yet
+            if (this.p1 == null)
+                namePlayer(1, name);
+            // add player two if player 1 already defined
+            else
+                namePlayer(2, name);
         }
     }
 
@@ -239,7 +242,7 @@ public class QuizApp extends Application {
     {
         if (!isGameOver()) {
             this.gameOver = true;
-            addToPlayerHistory(this.p2);
+            if (!getIsSinglePlayer()) addToPlayerHistory(this.p2);
             addToPlayerHistory(this.p1);
         }
     }
@@ -264,7 +267,7 @@ public class QuizApp extends Application {
             historyEnc += p.getName() + ";" + p.getScore() + "&";
         }
         // remove '&' at end of string
-        historyEnc = historyEnc.substring(0,historyEnc.length()-2);
+        historyEnc = historyEnc.substring(0,historyEnc.length()-1);
 
         SharedPreferences.Editor editor = getSharedPreferences(QuizApp.PREF_FILE, MODE_PRIVATE).edit();
         editor.putString("history", historyEnc);
@@ -278,7 +281,7 @@ public class QuizApp extends Application {
         if (historyEnc != null) {
             // split encoded String into Player strings ("Name;Score") pStr
             String[] playersStr = historyEnc.split("&");
-            if (this.history == null) this.history = new LinkedList<Player>();
+            this.history = new LinkedList<Player>();
             for (String pStr : playersStr)
             {
                 String[] pStrArray = pStr.split(";");
@@ -293,6 +296,7 @@ public class QuizApp extends Application {
     {
         loadHistory();
         if (count>=0) {
+            if (this.history.size() < count) count = this.history.size();
             Player[] players = new Player[count];
             for (int i=0; i<=count-1; i++)
             {

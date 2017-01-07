@@ -71,10 +71,13 @@ public class QuizInterfaceTopBarMenuFragment extends Fragment{
         Q1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                disableAnsweredQuestionButtons();
                 QuizApp logic = (QuizApp) getActivity().getApplicationContext();
-                logic.setCurrentQuestion(1);
-                questionFragment = new QuizInterfaceFragment();
-                commitTransaction(questionFragment);
+                if (!logic.hasAnsweredQuestion(1)) {
+                    logic.setCurrentQuestion(1);
+                    questionFragment = new QuizInterfaceFragment();
+                    commitTransaction(questionFragment);
+                }
             }
         });
 
@@ -82,40 +85,52 @@ public class QuizInterfaceTopBarMenuFragment extends Fragment{
         Q2.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                disableAnsweredQuestionButtons();
                 QuizApp logic = (QuizApp) getActivity().getApplicationContext();
-                logic.setCurrentQuestion(2);
-                questionFragment = new QuizInterfaceFragment();
-                commitTransaction(questionFragment);
+                if (!logic.hasAnsweredQuestion(2)) {
+                    logic.setCurrentQuestion(2);
+                    questionFragment = new QuizInterfaceFragment();
+                    commitTransaction(questionFragment);
+                }
             }
         });
 
         Q3.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                disableAnsweredQuestionButtons();
                 QuizApp logic = (QuizApp) getActivity().getApplicationContext();
-                logic.setCurrentQuestion(3);
-                questionFragment = new QuizInterfaceFragment();
-                commitTransaction(questionFragment);
+                if (!logic.hasAnsweredQuestion(3)) {
+                    logic.setCurrentQuestion(3);
+                    questionFragment = new QuizInterfaceFragment();
+                    commitTransaction(questionFragment);
+                }
             }
         });
 
         Q4.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                disableAnsweredQuestionButtons();
                 QuizApp logic = (QuizApp) getActivity().getApplicationContext();
-                logic.setCurrentQuestion(4);
-                questionFragment = new QuizInterfaceFragment();
-                commitTransaction(questionFragment);
+                if (!logic.hasAnsweredQuestion(4)) {
+                    logic.setCurrentQuestion(4);
+                    questionFragment = new QuizInterfaceFragment();
+                    commitTransaction(questionFragment);
+                }
             }
         });
 
         Q5.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                disableAnsweredQuestionButtons();
                 QuizApp logic = (QuizApp) getActivity().getApplicationContext();
-                logic.setCurrentQuestion(5);
-                questionFragment = new QuizInterfaceFragment();
-                commitTransaction(questionFragment);
+                if (!logic.hasAnsweredQuestion(5)) {
+                    logic.setCurrentQuestion(5);
+                    questionFragment = new QuizInterfaceFragment();
+                    commitTransaction(questionFragment);
+                }
             }
         });
 
@@ -127,6 +142,14 @@ public class QuizInterfaceTopBarMenuFragment extends Fragment{
             }
         });
 
+        disableAnsweredQuestionButtons();
+
+        return view;
+    }
+
+    public void disableAnsweredQuestionButtons()
+    {
+        QuizApp logic = (QuizApp) getActivity().getApplicationContext();
         // disable buttons if questions have been answered
         // check which questions the active players has already answered
         if (logic.hasAnsweredQuestion(1)) Q1.setEnabled(false);
@@ -134,8 +157,6 @@ public class QuizInterfaceTopBarMenuFragment extends Fragment{
         if (logic.hasAnsweredQuestion(3)) Q3.setEnabled(false);
         if (logic.hasAnsweredQuestion(4)) Q4.setEnabled(false);
         if (logic.hasAnsweredQuestion(5)) Q5.setEnabled(false);
-
-        return view;
     }
 
     public void onActivityCreated (Bundle savedInstanceState)

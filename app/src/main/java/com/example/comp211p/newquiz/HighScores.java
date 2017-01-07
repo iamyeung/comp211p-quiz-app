@@ -46,16 +46,12 @@ public class HighScores extends AppCompatActivity {
     public void displayAllScores(Player[] players) {
         // TODO - UNSURE IF THE DISPLAY SCORE WILL WORK
         // get table: display names and scores from player array
+        String highScore = "";
         for (int i = 0; i <= players.length - 1; i++) {
-            String name = players[i].getName();
-            int score = players[i].getScore();
-
-            TextView allHighScores = (TextView) findViewById(R.id.allHighScores);
-            String firstScore = name + "\t\t" + score;
-            String highScore = firstScore + "\n" + name + "\t\t" + score;
-            //unsure if this will work? needs to be tested.
-            allHighScores.setText(highScore);
+            highScore += players[i].getName() + "\t\t" + players[i].getScore() + "\n";
         }
+        TextView allHighScores = (TextView) findViewById(R.id.allHighScores);
+        allHighScores.setText(highScore);
     }
 
     public void displayPlayer1Score(String name, int score)
