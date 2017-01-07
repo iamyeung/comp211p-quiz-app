@@ -77,7 +77,6 @@ public class QuizInterfaceMultipleFragment2 extends Fragment {
                 Toast.makeText(getActivity(), R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
-                incorrectAnswer();
             }
         });
         falseButton.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +85,6 @@ public class QuizInterfaceMultipleFragment2 extends Fragment {
                 Toast.makeText(getActivity(), R.string.correctMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
-                correctAnswer();
             }
         });
         skipButton.setOnClickListener(new View.OnClickListener() {
@@ -104,7 +102,6 @@ public class QuizInterfaceMultipleFragment2 extends Fragment {
                 Toast.makeText(getActivity(), R.string.cheatMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
-                cheatAnswer();
             }
         });
     }
@@ -124,24 +121,4 @@ public class QuizInterfaceMultipleFragment2 extends Fragment {
         skipButton.setEnabled(false);
     }
 
-    public void correctAnswer() {
-        final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        SharedPreferences.Editor editor = app_preferences.edit();
-        editor.putInt("p1_answer_value2", 1);
-        editor.commit();
-    }
-
-    public void incorrectAnswer() {
-        final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        SharedPreferences.Editor editor = app_preferences.edit();
-        editor.putInt("p1_answer_value2", 0);
-        editor.commit();
-    }
-
-    public void cheatAnswer() {
-        final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        SharedPreferences.Editor editor = app_preferences.edit();
-        editor.putInt("p1_answer_value2", -1);
-        editor.commit();
-    }
 }

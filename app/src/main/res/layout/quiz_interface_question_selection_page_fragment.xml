@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_question_page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.comp211p.newquiz.QuestionSelectionPage"
+    android:background="@android:color/holo_blue_light"
+    android:gravity="center">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:weightSum="1">
+
+        <TextView
+            android:text="Question Page"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="normal|bold"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:id="@+id/welcomeText"
+            android:gravity="center" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <Button
+            android:text="Q1"
+            android:id="@+id/button1"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:textStyle="normal|bold"
+            android:background="@android:color/holo_orange_light"
+            android:textAlignment="center"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <Button
+            android:text="Q2"
+            android:id="@+id/button2"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:textStyle="normal|bold"
+            android:background="@android:color/holo_orange_light"
+            android:textAlignment="center"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <Button
+            android:text="Q3"
+            android:id="@+id/button3"
+            android:layout_gravity="center"
+            android:layout_height="60dp"
+            android:layout_width="60dp"
+            android:textSize="18sp"
+            android:textStyle="normal|bold"
+            android:background="@android:color/holo_orange_light"
+            android:textAlignment="center" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <Button
+            android:text="Q4"
+            android:id="@+id/button4"
+            android:layout_gravity="center"
+            android:layout_height="60dp"
+            android:layout_width="60dp"
+            android:textSize="18sp"
+            android:textStyle="normal|bold"
+            android:background="@android:color/holo_orange_light"
+            android:textAlignment="center" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <Button
+            android:text="Q5"
+            android:id="@+id/button5"
+            android:layout_gravity="center"
+            android:layout_height="60dp"
+            android:layout_width="60dp"
+            android:textSize="18sp"
+            android:textStyle="normal|bold"
+            android:background="@android:color/holo_orange_light"
+            android:textAlignment="center" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <Button
+            android:text="QUIT"
+            android:layout_height="wrap_content"
+            android:id="@+id/quitButton"
+            android:background="@android:color/holo_orange_light"
+            android:layout_width="100dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_gravity="center" />
+    </LinearLayout>
+</RelativeLayout>
