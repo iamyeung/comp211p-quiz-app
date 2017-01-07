@@ -60,6 +60,9 @@ public class StartScreen extends AppCompatActivity {
                 startActivity(in);
             }
         });
+
+        QuizApp logic = (QuizApp) getApplicationContext();
+        logic.loadQuestions();
     }
 
     @Override

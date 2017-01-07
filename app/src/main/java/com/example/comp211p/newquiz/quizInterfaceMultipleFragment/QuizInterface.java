@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.example.comp211p.newquiz.R;
 
-public class QuizInterfaceMultipleFragment extends AppCompatActivity
+public class QuizInterface extends AppCompatActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

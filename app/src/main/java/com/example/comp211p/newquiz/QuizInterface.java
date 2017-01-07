@@ -17,7 +17,7 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-public class QuizInterface1 extends AppCompatActivity {
+public class QuizInterface extends AppCompatActivity {
 
     //declare all the buttons for use
     private Button trueButton;
@@ -62,12 +62,15 @@ public class QuizInterface1 extends AppCompatActivity {
         trueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //remember that we do not use QuizInterface1.java, so I think you should copy this code into QuizInterfaceMultipleFragment1
+                //remember that we do not use QuizInterface.java, so I think you should copy this code into QuizInterfaceFragment
                 QuizApp logic = (QuizApp) getApplicationContext();
                 logic.answerQuestion(true);
-                //MOVE THIS CODE TO QuizInterfaceMultipleFragment1,QuizInterfaceMultipleFragment2, QuizInterfaceMultipleFragment3 etc.
+                //MOVE THIS CODE TO QuizInterfaceFragment,QuizInterfaceMultipleFragment2, QuizInterfaceMultipleFragment3 etc.
 
-                Toast.makeText(QuizInterface1.this, R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
+                if (logic.getCurrentQuestion().isTrue())
+                    Toast.makeText(QuizInterface.this, R.string.correctMessage, Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(QuizInterface.this, R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 //all buttons will be set to false, such that none of them can be pressed anymore. they can only press return, or wait 3.5 seconds for the screen to return to question page
                 trueButton.setEnabled(false);
@@ -81,11 +84,14 @@ public class QuizInterface1 extends AppCompatActivity {
         falseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //remember that we do not use QuizInterface1.java, so I think you should copy this code into QuizInterfaceMultipleFragment1
+                //remember that we do not use QuizInterface.java, so I think you should copy this code into QuizInterfaceFragment
                 QuizApp logic = (QuizApp) getApplicationContext();
                 logic.answerQuestion(false);
 
-                Toast.makeText(QuizInterface1.this, R.string.correctMessage, Toast.LENGTH_SHORT).show();
+                if (logic.getCurrentQuestion().isTrue())
+                    Toast.makeText(QuizInterface.this, R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(QuizInterface.this, R.string.correctMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 //all buttons will be set to false, such that none of them can be pressed anymore. they can only press return, or wait 3.5 seconds for the screen to return to question page
                 trueButton.setEnabled(false);
@@ -99,7 +105,7 @@ public class QuizInterface1 extends AppCompatActivity {
         skipButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(QuizInterface1.this, R.string.skipTo1Message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(QuizInterface.this, R.string.skipTo1Message, Toast.LENGTH_SHORT).show();
                 goToQuestionPage();
                 //there is no need to add a mHandler.postDelayed method here because the skip button will directly link you back to the Question Page
             }
@@ -107,11 +113,11 @@ public class QuizInterface1 extends AppCompatActivity {
         cheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //remember that we do not use QuizInterface1.java, so I think you should copy this code into QuizInterfaceMultipleFragment1
+                //remember that we do not use QuizInterface.java, so I think you should copy this code into QuizInterfaceFragment
                 QuizApp logic = (QuizApp) getApplicationContext();
                 logic.cheatQuestion();
 
-                Toast.makeText(QuizInterface1.this, R.string.cheatMessage, Toast.LENGTH_SHORT).show();
+                Toast.makeText(QuizInterface.this, R.string.cheatMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 //all buttons will be set to false, such that none of them can be pressed anymore. they can only press return, or wait 3.5 seconds for the screen to return to question page
                 trueButton.setEnabled(false);

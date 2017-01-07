@@ -2,6 +2,7 @@ package com.example.comp211p.newquiz;
 
 import android.app.Application;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import java.util.LinkedList;
 
@@ -23,11 +24,17 @@ public class QuizApp extends Application {
         super();
         this.isSinglePlayer = true;
         this.player1Active = true;
-        loadHistory();
+        this.history = new LinkedList<Player>();
+        // does not work before onCreate has been called in an activity
+        //loadHistory();
         this.gameOver = false;
 
         this.currentQuestion = 0;
         this.questions = new Question[5];
+    }
+
+    public void loadQuestions()
+    {
         // Load all questions from resources
         questions[0] = new Question(
                 getResources().getString(R.string.Q1),
@@ -123,9 +130,14 @@ public class QuizApp extends Application {
         }
     }
 
-    public int getCurrentQuestion()
+    public int getCurrentQuestionNumber()
     {
         return this.currentQuestion;
+    }
+
+    public Question getCurrentQuestion()
+    {
+        return this.questions[this.currentQuestion-1];
     }
 
     public void setCurrentQuestion(int questionNumber)
@@ -137,23 +149,26 @@ public class QuizApp extends Application {
 
     public void answerQuestion(boolean answerTrue)
     {
-        int questionNumber = this.getCurrentQuestion();
-        boolean correct = (this.questions[questionNumber-1].isTrue() == answerTrue);
-        // player 1 is playing
-        if (isPlayer1Active()) {
-            p1.answerQuestion(questionNumber, correct);
+        int questionNumber = this.getCurrentQuestionNumber();
+        if (questionNumber >= 1 && questionNumber <= 5) {
+            boolean correct = (this.questions[questionNumber - 1].isTrue() == answerTrue);
+            // player 1 is playing
+            if (isPlayer1Active()) {
+                p1.answerQuestion(questionNumber, correct);
+            }
+            // player 2 is playing
+            else {
+                p2.answerQuestion(questionNumber, correct);
+            }
+            checkProgress();
+        } else {
+            Log.e("Logic", "Question number to be answered out of bounds.");
         }
-        // player 2 is playing
-        else
-        {
-            p2.answerQuestion(questionNumber, correct);
-        }
-        checkProgress();
     }
 
     public void cheatQuestion()
     {
-        int questionNumber = this.getCurrentQuestion();
+        int questionNumber = this.getCurrentQuestionNumber();
         // player 1 is playing
         if (isPlayer1Active()) {
             p1.answerQuestion(questionNumber, false);
@@ -251,14 +266,14 @@ public class QuizApp extends Application {
         // remove '&' at end of string
         historyEnc = historyEnc.substring(0,historyEnc.length()-2);
 
-        SharedPreferences.Editor editor = getSharedPreferences(PREF_FILE, MODE_PRIVATE).edit();
+        SharedPreferences.Editor editor = getSharedPreferences(QuizApp.PREF_FILE, MODE_PRIVATE).edit();
         editor.putString("history", historyEnc);
         editor.apply();
     }
 
     private void loadHistory()
     {
-        SharedPreferences prefs = getSharedPreferences(PREF_FILE, MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences(QuizApp.PREF_FILE, MODE_PRIVATE);
         String historyEnc = prefs.getString("history", null);
         if (historyEnc != null) {
             // split encoded String into Player strings ("Name;Score") pStr
@@ -286,5 +301,14 @@ public class QuizApp extends Application {
             return players;
         }
         return new Player[0];
+    }
+
+    public boolean arePlayersReady()
+    {
+        if (getIsSinglePlayer()) {
+            return (p1 != null);
+        } else {
+            return (p1 != null && p2 != null);
+        }
     }
 }

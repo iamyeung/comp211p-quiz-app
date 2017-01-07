@@ -1,19 +1,12 @@
 package com.example.comp211p.newquiz;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.comp211p.newquiz.quizInterfaceMultipleFragment.QuizInterfaceMultipleFragment;
-import com.example.comp211p.newquiz.quizInterfaceMultipleFragment.QuizInterfaceMultipleFragment1;
-import com.example.comp211p.newquiz.quizInterfaceMultipleFragment.QuizInterfaceMultipleFragment2;
-import com.example.comp211p.newquiz.quizInterfaceMultipleFragment.QuizInterfaceMultipleFragment3;
-import com.example.comp211p.newquiz.quizInterfaceMultipleFragment.QuizInterfaceMultipleFragment4;
-import com.example.comp211p.newquiz.quizInterfaceMultipleFragment.QuizInterfaceMultipleFragment5;
+import com.example.comp211p.newquiz.quizInterfaceMultipleFragment.QuizInterface;
 
 public class QuestionSelectionPage extends AppCompatActivity {
 
@@ -34,7 +27,7 @@ public class QuestionSelectionPage extends AppCompatActivity {
             public void onClick(View v) {
                 QuizApp logic = (QuizApp) getApplicationContext();
                 logic.setCurrentQuestion(1);
-                Intent in = new Intent(getBaseContext(), QuizInterfaceMultipleFragment1.class);
+                Intent in = new Intent(getBaseContext(), QuizInterface.class);
                 startActivity(in);
             }
         });
@@ -45,7 +38,7 @@ public class QuestionSelectionPage extends AppCompatActivity {
             public void onClick(View v) {
                 QuizApp logic = (QuizApp) getApplicationContext();
                 logic.setCurrentQuestion(2);
-                Intent in = new Intent(getBaseContext(), QuizInterfaceMultipleFragment2.class);
+                Intent in = new Intent(getBaseContext(), QuizInterface.class);
                 startActivity(in);
             }
         });
@@ -56,7 +49,7 @@ public class QuestionSelectionPage extends AppCompatActivity {
             public void onClick(View v) {
                 QuizApp logic = (QuizApp) getApplicationContext();
                 logic.setCurrentQuestion(3);
-                Intent in = new Intent(getBaseContext(), QuizInterfaceMultipleFragment3.class);
+                Intent in = new Intent(getBaseContext(), QuizInterface.class);
                 startActivity(in);
             }
         });
@@ -67,7 +60,7 @@ public class QuestionSelectionPage extends AppCompatActivity {
             public void onClick(View v) {
                 QuizApp logic = (QuizApp) getApplicationContext();
                 logic.setCurrentQuestion(4);
-                Intent in = new Intent(getBaseContext(), QuizInterfaceMultipleFragment4.class);
+                Intent in = new Intent(getBaseContext(), QuizInterface.class);
                 startActivity(in);
             }
         });
@@ -78,7 +71,7 @@ public class QuestionSelectionPage extends AppCompatActivity {
             public void onClick(View v) {
                 QuizApp logic = (QuizApp) getApplicationContext();
                 logic.setCurrentQuestion(5);
-                Intent in = new Intent(getBaseContext(), QuizInterfaceMultipleFragment5.class);
+                Intent in = new Intent(getBaseContext(), QuizInterface.class);
                 startActivity(in);
             }
         });

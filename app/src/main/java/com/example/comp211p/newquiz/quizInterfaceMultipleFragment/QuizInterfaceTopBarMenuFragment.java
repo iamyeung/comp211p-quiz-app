@@ -28,11 +28,7 @@ public class QuizInterfaceTopBarMenuFragment extends Fragment{
     private Button FINISH;
 
     //initialise variable to allow us to change from one fragment page to another prgament page
-    Fragment quizInterfaceMultipleFragment1;
-    Fragment quizInterfaceMultipleFragment2;
-    Fragment quizInterfaceMultipleFragment3;
-    Fragment quizInterfaceMultipleFragment4;
-    Fragment quizInterfaceMultipleFragment5;
+    Fragment questionFragment;
     Fragment quizInterfaceMultipleFragmentFinish;
     FragmentTransaction fragTransaction;
 
@@ -58,25 +54,27 @@ public class QuizInterfaceTopBarMenuFragment extends Fragment{
         FINISH = (Button)view.findViewById(R.id.finishButton);
 
         //first instance to initialise to fragment screen 1
-        quizInterfaceMultipleFragment1 = new QuizInterfaceMultipleFragment1();
-        fragTransaction = getFragmentManager().beginTransaction().add(R.id.container, quizInterfaceMultipleFragment1);
+        questionFragment = new QuizInterfaceFragment();
+        fragTransaction = getFragmentManager().beginTransaction().add(R.id.container, questionFragment);
         fragTransaction.commit();
 
 
         TextView playerName  = (TextView)view.findViewById(R.id.player1NameAndScore);
-        QuizApp logic = (QuizApp) getContext();
+        QuizApp logic = (QuizApp) getActivity().getApplicationContext();
         if(logic.isPlayer1Active()) {
             playerName.setText("Welcome " + logic.p1.getName() + "!");
         } else {
             playerName.setText("Welcome " + logic.p2.getName() + "!");
         }
 
-        //when click button 1, it will go to QuizInterfaceMultipleFragment1
+        //when click button 1, it will go to QuizInterfaceFragment
         Q1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                quizInterfaceMultipleFragment1 = new QuizInterfaceMultipleFragment1();
-                commitTransaction(quizInterfaceMultipleFragment1);
+                QuizApp logic = (QuizApp) getActivity().getApplicationContext();
+                logic.setCurrentQuestion(1);
+                questionFragment = new QuizInterfaceFragment();
+                commitTransaction(questionFragment);
             }
         });
 
@@ -84,32 +82,40 @@ public class QuizInterfaceTopBarMenuFragment extends Fragment{
         Q2.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                quizInterfaceMultipleFragment2 = new QuizInterfaceMultipleFragment2();
-                commitTransaction(quizInterfaceMultipleFragment2);
+                QuizApp logic = (QuizApp) getActivity().getApplicationContext();
+                logic.setCurrentQuestion(2);
+                questionFragment = new QuizInterfaceFragment();
+                commitTransaction(questionFragment);
             }
         });
 
         Q3.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                quizInterfaceMultipleFragment3 = new QuizInterfaceMultipleFragment3();
-                commitTransaction(quizInterfaceMultipleFragment3);
+                QuizApp logic = (QuizApp) getActivity().getApplicationContext();
+                logic.setCurrentQuestion(3);
+                questionFragment = new QuizInterfaceFragment();
+                commitTransaction(questionFragment);
             }
         });
 
         Q4.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                quizInterfaceMultipleFragment4 = new QuizInterfaceMultipleFragment4();
-                commitTransaction(quizInterfaceMultipleFragment4);
+                QuizApp logic = (QuizApp) getActivity().getApplicationContext();
+                logic.setCurrentQuestion(4);
+                questionFragment = new QuizInterfaceFragment();
+                commitTransaction(questionFragment);
             }
         });
 
         Q5.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                quizInterfaceMultipleFragment5 = new QuizInterfaceMultipleFragment5();
-                commitTransaction(quizInterfaceMultipleFragment5);
+                QuizApp logic = (QuizApp) getActivity().getApplicationContext();
+                logic.setCurrentQuestion(5);
+                questionFragment = new QuizInterfaceFragment();
+                commitTransaction(questionFragment);
             }
         });
 
@@ -120,6 +126,14 @@ public class QuizInterfaceTopBarMenuFragment extends Fragment{
                 commitTransaction(quizInterfaceMultipleFragmentFinish);
             }
         });
+
+        // disable buttons if questions have been answered
+        // check which questions the active players has already answered
+        if (logic.hasAnsweredQuestion(1)) Q1.setEnabled(false);
+        if (logic.hasAnsweredQuestion(2)) Q2.setEnabled(false);
+        if (logic.hasAnsweredQuestion(3)) Q3.setEnabled(false);
+        if (logic.hasAnsweredQuestion(4)) Q4.setEnabled(false);
+        if (logic.hasAnsweredQuestion(5)) Q5.setEnabled(false);
 
         return view;
     }

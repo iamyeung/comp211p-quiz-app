@@ -8,8 +8,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.comp211p.newquiz.quizInterfaceMultipleFragment.QuizInterfaceMultipleFragment;
-
 public class InputName extends AppCompatActivity {
 
     @Override
@@ -28,8 +26,9 @@ public class InputName extends AppCompatActivity {
                 // mode, this adds player 2
                 logic.addPlayer(playerName);
 
-                if(logic.getIsSinglePlayer()) {
-                    Intent in = new Intent(getBaseContext(), QuizInterfaceMultipleFragment.class);
+                if (logic.arePlayersReady())
+                {
+                    Intent in = new Intent(getBaseContext(), QuestionSelectionPage.class);
                     startActivity(in);
                 } else {
                     // repeats input name for player 2
