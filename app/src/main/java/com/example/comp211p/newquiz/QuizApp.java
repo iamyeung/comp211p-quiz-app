@@ -18,7 +18,7 @@ public class QuizApp extends Application {
     private int currentQuestion;
     private boolean gameOver;
 
-    QuizApp ()
+    public QuizApp ()
     {
         super();
         this.isSinglePlayer = true;
