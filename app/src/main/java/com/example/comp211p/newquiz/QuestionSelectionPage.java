@@ -75,16 +75,7 @@ public class QuestionSelectionPage extends AppCompatActivity {
                 startActivity(in);
             }
         });
-
-        /*quitButton = (Button) findViewById(R.id.quitButton);
-        quitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = new Intent(getApplicationContext(), StartScreen.class);
-                startActivity(in);
-            }
-        });*/
-
+        
         // disable buttons if questions have been answered
         QuizApp logic = (QuizApp) getApplicationContext();
         // check which questions the active players has already answered
@@ -99,8 +90,9 @@ public class QuestionSelectionPage extends AppCompatActivity {
 
     public void goToScorePage()
     {
-        //TODO
-        // will be accessed when logic says game is done
+        //TODO will be accessed when logic says game is done
+        Intent in = new Intent(getApplicationContext(), HighScores.class);
+        startActivity(in);
     }
 
     /**
@@ -111,7 +103,6 @@ public class QuestionSelectionPage extends AppCompatActivity {
         QuizApp logic = (QuizApp) getApplicationContext();
         // switch from player 1 to player 2
         logic.switchPlayer();
-
         // TODO: REPEAT ALL QUESTIONS FOR PLAYER 2 (go to question selection page)
     }
 

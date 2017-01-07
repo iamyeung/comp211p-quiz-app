@@ -109,6 +109,12 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
         answerText.startAnimation(animation);
     }
 
+    public void disableButton (Button buttonName){
+        buttonName.setEnabled(false);
+        //buttonName is a selection from (trueButton, falseButton, cheatButton, skipButton)
+        //example: disableButton (skipButton)
+    }
+
     public void disableAllButtons() {
         trueButton.setEnabled(false);
         falseButton.setEnabled(false);

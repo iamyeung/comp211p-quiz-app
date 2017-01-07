@@ -132,6 +132,7 @@ public class QuizInterfaceTopBarMenuFragment extends Fragment{
     public void disableButton(Button QButtonNumber)
     {
         QButtonNumber.setEnabled(false);
+        //QButtonNumber is a selection from Q1, Q2, Q3, Q4, Q5
     }
 
     public void disableAllButtons()
