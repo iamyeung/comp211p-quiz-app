@@ -18,6 +18,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.comp211p.newquiz.QuestionSelectionPage;
+import com.example.comp211p.newquiz.QuizInterface1;
 import com.example.comp211p.newquiz.R;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -75,6 +77,7 @@ public class QuizInterfaceMultipleFragment4 extends Fragment {
                 Toast.makeText(getActivity(), R.string.correctMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
+                correctAnswer();
             }
         });
         falseButton.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +86,7 @@ public class QuizInterfaceMultipleFragment4 extends Fragment {
                 Toast.makeText(getActivity(), R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
+                incorrectAnswer();
             }
         });
         skipButton.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +104,7 @@ public class QuizInterfaceMultipleFragment4 extends Fragment {
                 Toast.makeText(getActivity(), R.string.cheatMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
+                cheatAnswer();
             }
         });
     }
@@ -119,4 +124,24 @@ public class QuizInterfaceMultipleFragment4 extends Fragment {
         skipButton.setEnabled(false);
     }
 
+    public void correctAnswer() {
+        final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences.Editor editor = app_preferences.edit();
+        editor.putInt("p1_answer_value4", 1);
+        editor.commit();
+    }
+
+    public void incorrectAnswer() {
+        final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences.Editor editor = app_preferences.edit();
+        editor.putInt("p1_answer_value4", 0);
+        editor.commit();
+    }
+
+    public void cheatAnswer() {
+        final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences.Editor editor = app_preferences.edit();
+        editor.putInt("p1_answer_value4", -1);
+        editor.commit();
+    }
 }

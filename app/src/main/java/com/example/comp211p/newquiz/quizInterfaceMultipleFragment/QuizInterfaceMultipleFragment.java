@@ -11,6 +11,7 @@ public class QuizInterfaceMultipleFragment extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_interface_multiple_fragment);
+
     }
 
     public void displayQuestion(String question, boolean correct, String answer)

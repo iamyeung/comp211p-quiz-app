@@ -23,19 +23,6 @@
                 android:layout_weight="1" />
 
             <Button
-                android:text="Questions"
-                android:id="@+id/buttonToQuestionSelectionPage"
-                android:background="@android:color/holo_orange_light"
-                android:layout_weight="1"
-                android:layout_height="30dp"
-                android:layout_width="wrap_content" />
-
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="30dp"
-                android:layout_weight="1" />
-
-            <Button
                 android:text="Q1"
                 android:id="@+id/question1"
                 android:background="@android:color/holo_orange_light"
@@ -100,6 +87,19 @@
                 android:layout_height="30dp"
                 android:layout_weight="1" />
 
+            <Button
+                android:text="Finish"
+                android:layout_height="30dp"
+                android:layout_width="60dp"
+                android:id="@+id/finishButton"
+                android:background="@android:color/holo_orange_light"
+                android:layout_weight="1" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_weight="1" />
+
         </LinearLayout>
 
     </HorizontalScrollView>
@@ -107,7 +107,7 @@
     <TextView
         android:text="player1name"
         android:layout_height="wrap_content"
-        android:id="@+id/player1Name"
+        android:id="@+id/playerName"
         android:textSize="30sp"
         android:textStyle="normal|bold"
         android:layout_width="match_parent"
