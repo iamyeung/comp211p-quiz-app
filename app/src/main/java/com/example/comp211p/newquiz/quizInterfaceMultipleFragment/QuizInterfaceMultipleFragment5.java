@@ -96,7 +96,7 @@ public class QuizInterfaceMultipleFragment5 extends Fragment {
         answerText.setVisibility(View.VISIBLE);
         TranslateAnimation animation = new TranslateAnimation(0, 0, 2000, 0);
         //animation time for the text to pop up is 0.5 seconds, can change if you need
-        animation.setDuration(500);
+        animation.setDuration(200);
         answerText.startAnimation(animation);
     }
 

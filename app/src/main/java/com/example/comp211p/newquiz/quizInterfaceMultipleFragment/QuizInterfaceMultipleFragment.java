@@ -14,16 +14,18 @@ public class QuizInterfaceMultipleFragment extends AppCompatActivity
 
     }
 
-    public void displayQuestion(String question, boolean correct, String answer)
-    {
-        // TODO
-        // figure out how to change the strings for question, answer
-    }
-
 }
         //Don't delete
         /*
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().add(topBarMenuContainer, new QuizInterfaceTopBarMenuFragment()).commit();
         }
+
+
+    public void displayQuestion(String question, boolean correct, String answer)
+    {
+        // TODO
+        // figure out how to change the strings for question, answer
+    }
+
         */

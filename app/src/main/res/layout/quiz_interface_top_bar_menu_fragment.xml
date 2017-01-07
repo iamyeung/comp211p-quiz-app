@@ -24,7 +24,7 @@
 
             <Button
                 android:text="Q1"
-                android:id="@+id/question1"
+                android:id="@+id/Q1Button"
                 android:background="@android:color/holo_orange_light"
                 android:layout_weight="1"
                 android:layout_height="30dp"
@@ -39,7 +39,7 @@
                 android:text="Q2"
                 android:layout_height="30dp"
                 android:layout_width="60dp"
-                android:id="@+id/question2"
+                android:id="@+id/Q2Button"
                 android:background="@android:color/holo_orange_light"
                 android:layout_weight="1" />
 
@@ -52,7 +52,7 @@
                 android:text="Q3"
                 android:layout_height="30dp"
                 android:layout_width="60dp"
-                android:id="@+id/question3"
+                android:id="@+id/Q3Button"
                 android:background="@android:color/holo_orange_light"
                 android:layout_weight="1" />
 
@@ -65,7 +65,7 @@
                 android:text="Q4"
                 android:layout_height="30dp"
                 android:layout_width="60dp"
-                android:id="@+id/question4"
+                android:id="@+id/Q4Button"
                 android:background="@android:color/holo_orange_light"
                 android:layout_weight="1" />
 
@@ -78,7 +78,7 @@
                 android:text="Q5"
                 android:layout_height="30dp"
                 android:layout_width="60dp"
-                android:id="@+id/question5"
+                android:id="@+id/Q5Button"
                 android:background="@android:color/holo_orange_light"
                 android:layout_weight="1" />
 

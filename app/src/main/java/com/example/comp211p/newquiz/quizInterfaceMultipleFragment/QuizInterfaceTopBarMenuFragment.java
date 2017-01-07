@@ -42,7 +42,7 @@ public class QuizInterfaceTopBarMenuFragment extends Fragment{
 
     //transaction to switch the fragment screens
     public void commitTransaction (Fragment quizInterfaceFragmentNumber) {
-        fragTransaction = getFragmentManager().beginTransaction().add(R.id.container, quizInterfaceFragmentNumber);
+        fragTransaction = getFragmentManager().beginTransaction().replace(R.id.container, quizInterfaceFragmentNumber);
         fragTransaction.commit();
     }
 
@@ -50,16 +50,17 @@ public class QuizInterfaceTopBarMenuFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.quiz_interface_top_bar_menu_fragment, container, false);
 
-        Q1 = (Button)view.findViewById(R.id.question1);
-        Q2 = (Button)view.findViewById(R.id.question2);
-        Q3 = (Button)view.findViewById(R.id.question3);
-        Q4 = (Button)view.findViewById(R.id.question4);
-        Q5 = (Button)view.findViewById(R.id.question5);
+        Q1 = (Button)view.findViewById(R.id.Q1Button);
+        Q2 = (Button)view.findViewById(R.id.Q2Button);
+        Q3 = (Button)view.findViewById(R.id.Q3Button);
+        Q4 = (Button)view.findViewById(R.id.Q4Button);
+        Q5 = (Button)view.findViewById(R.id.Q5Button);
         FINISH = (Button)view.findViewById(R.id.finishButton);
 
         //first instance to initialise to fragment screen 1
         quizInterfaceMultipleFragment1 = new QuizInterfaceMultipleFragment1();
-        commitTransaction (quizInterfaceMultipleFragment1);
+        fragTransaction = getFragmentManager().beginTransaction().add(R.id.container, quizInterfaceMultipleFragment1);
+        fragTransaction.commit();
 
 
         TextView playerName  = (TextView)view.findViewById(R.id.player1NameAndScore);
@@ -128,9 +129,18 @@ public class QuizInterfaceTopBarMenuFragment extends Fragment{
         super.onActivityCreated(savedInstanceState);
     }
 
-    public void disableButton(int num)
+    public void disableButton(Button QButtonNumber)
     {
-        //TODO
+        QButtonNumber.setEnabled(false);
+    }
+
+    public void disableAllButtons()
+    {
+        disableButton(Q1);
+        disableButton(Q2);
+        disableButton(Q3);
+        disableButton(Q4);
+        disableButton(Q5);
     }
 
 }

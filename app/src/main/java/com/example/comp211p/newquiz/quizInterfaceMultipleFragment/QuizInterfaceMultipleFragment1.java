@@ -72,7 +72,6 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
                 //Toast.makeText(getActivity(), R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
-                //incorrectAnswer();
             }
         });
         falseButton.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +80,6 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
                 //Toast.makeText(getActivity(), R.string.correctMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
-                //correctAnswer();
             }
         });
         skipButton.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +97,6 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
                 //Toast.makeText(getActivity(), R.string.cheatMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
-                //cheatAnswer();
             }
         });
     }
@@ -108,7 +105,7 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
         answerText.setVisibility(View.VISIBLE);
         TranslateAnimation animation = new TranslateAnimation(0, 0, 2000, 0);
         //animation time for the text to pop up is 0.5 seconds, can change if you need
-        animation.setDuration(500);
+        animation.setDuration(200);
         answerText.startAnimation(animation);
     }
 
