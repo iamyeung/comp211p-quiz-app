@@ -83,6 +83,13 @@ public class QuizInterfaceMultipleFragment3 extends Fragment {
                 disableAllButtons();
             }
         });
+        skipButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), QuestionSelectionPage.class);
+                startActivity(intent);
+            }
+        });
         cheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +104,7 @@ public class QuizInterfaceMultipleFragment3 extends Fragment {
         answerText.setVisibility(View.VISIBLE);
         TranslateAnimation animation = new TranslateAnimation(0, 0, 2000, 0);
         //animation time for the text to pop up is 0.5 seconds, can change if you need
-        animation.setDuration(200);
+        animation.setDuration(00);
         answerText.startAnimation(animation);
     }
 

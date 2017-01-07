@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.comp211p.newquiz.HighScores;
 import com.example.comp211p.newquiz.QuestionSelectionPage;
 import com.example.comp211p.newquiz.QuizApp;
 import com.example.comp211p.newquiz.QuizInterface1;
@@ -38,8 +39,6 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
     public QuizInterfaceMultipleFragment1() {
     }
 
-    Fragment quizInterfaceMultipleFragment2;
-    FragmentTransaction fragTransaction;
     private Button trueButton;
     private Button falseButton;
     private Button skipButton;
@@ -86,9 +85,8 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(getActivity(), R.string.skipTo2Message, Toast.LENGTH_SHORT).show();
-                quizInterfaceMultipleFragment2 = new QuizInterfaceMultipleFragment2();
-                fragTransaction = getFragmentManager().beginTransaction().add(R.id.container, quizInterfaceMultipleFragment2);
-                fragTransaction.commit();
+                Intent intent = new Intent(getActivity(), QuestionSelectionPage.class);
+                startActivity(intent);
             }
         });
         cheatButton.setOnClickListener(new View.OnClickListener() {

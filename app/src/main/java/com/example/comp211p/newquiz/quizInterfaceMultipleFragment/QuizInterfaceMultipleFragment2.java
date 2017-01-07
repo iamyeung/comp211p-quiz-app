@@ -83,6 +83,13 @@ public class QuizInterfaceMultipleFragment2 extends Fragment {
                 disableAllButtons();
             }
         });
+        skipButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), QuestionSelectionPage.class);
+                startActivity(intent);
+            }
+        });
         cheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
