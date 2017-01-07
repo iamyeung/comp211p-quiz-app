@@ -15,10 +15,6 @@ import android.widget.TextView;
 public class HighScores extends AppCompatActivity {
 
     private Button finishButton;
-    TextView player1DisplayScore;
-    int player1CalculateScore;
-    int p1q1answer, p1q2answer, p1q3answer, p1q4answer, p1q5answer;
-
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +34,11 @@ public class HighScores extends AppCompatActivity {
         QuizApp logic = (QuizApp) getApplicationContext();
         if (logic.p1 != null)
         {
-            displayScore1(logic.p1.getName(), logic.p1.getScore());
+            displayPlayer1Score(logic.p1.getName(), logic.p1.getScore());
         }
         if (!logic.getIsSinglePlayer() && logic.p2 != null)
         {
-            displayScore2(logic.p2.getName(), logic.p2.getScore());
+            displayPlayer2Score(logic.p2.getName(), logic.p2.getScore());
         }
         displayAllScores(logic.getPlayerHistory(5));
     }
@@ -61,13 +57,13 @@ public class HighScores extends AppCompatActivity {
         }
     }
 
-    public void displayScore1(String name, int score)
+    public void displayPlayer1Score(String name, int score)
     {
         TextView player1NameAndScore  = (TextView) findViewById(R.id.player1NameAndScore);
         player1NameAndScore.setText(name + ": " + score);
     }
 
-    public void displayScore2(String name, int score)
+    public void displayPlayer2Score(String name, int score)
     {
         TextView player2NameAndScore  = (TextView) findViewById(R.id.player2NameAndScore);
         player2NameAndScore.setText(name + ": " + score);
