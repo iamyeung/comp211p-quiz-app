@@ -31,7 +31,7 @@ public class QuizInterface1 extends AppCompatActivity {
      */
     private GoogleApiClient client;
 
-    //this is the code for delaying the launch task.
+    //this is the code for delaying the launch task. DO we want this in the MultipleFragment?
     private Handler mHandler = new Handler();
     private Runnable mLaunchTask = new Runnable () {
         public void run() {

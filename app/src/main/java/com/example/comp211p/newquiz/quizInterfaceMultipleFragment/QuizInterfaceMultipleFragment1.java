@@ -62,6 +62,10 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
         return rootView;
     }
 
+    //currently we have the pop up text that displays correct, incorrect, skip and cheat.
+    //the following code is copied over MultipleFragment1,MultipleFragment2, MultipleFragment3, MultipleFragment4, MultipleFragment5
+    //except the changes with Incorrect, Correct, Skip, Cheat etc.
+
     public void selectedButton() {
         trueButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +89,8 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), R.string.skipTo2Message, Toast.LENGTH_SHORT).show();
+                //unsure if this intent button works. All skip button in QuizInterfaceMultipleFragment1,2,3,4,5 jump directly
+                //to QuestionSelectionPage.class, otherwise the user can also choose the new button on the TopBarMenuFrgament
                 Intent intent = new Intent(getActivity(), QuestionSelectionPage.class);
                 startActivity(intent);
             }
@@ -102,7 +108,7 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
     public void revealAnswer() {
         answerText.setVisibility(View.VISIBLE);
         TranslateAnimation animation = new TranslateAnimation(0, 0, 2000, 0);
-        //animation time for the text to pop up is 0.5 seconds, can change if you need
+        //animation time for the text to pop up is 0.2 seconds, can change if you need
         animation.setDuration(200);
         answerText.startAnimation(animation);
     }

@@ -11,7 +11,8 @@ import android.widget.Button;
 import com.example.comp211p.newquiz.HighScores;
 import com.example.comp211p.newquiz.R;
 
-
+//If we do not have the final button on the multiplefragment page, will the user directly jump to the high score page when
+//all five questions are answered?
 public class QuizInterfaceMultipleFragmentFinish extends Fragment {
 
     public QuizInterfaceMultipleFragmentFinish() {
