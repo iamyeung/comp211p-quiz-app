@@ -107,7 +107,7 @@
     <TextView
         android:text="player1name"
         android:layout_height="wrap_content"
-        android:id="@+id/playerName"
+        android:id="@+id/player1Name"
         android:textSize="30sp"
         android:textStyle="normal|bold"
         android:layout_width="match_parent"

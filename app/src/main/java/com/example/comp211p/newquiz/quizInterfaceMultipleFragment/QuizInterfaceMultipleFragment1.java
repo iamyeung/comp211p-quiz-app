@@ -18,9 +18,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.comp211p.newquiz.QuestionSelectionPage;
 import com.example.comp211p.newquiz.QuizApp;
-import com.example.comp211p.newquiz.QuizInterface1;
 import com.example.comp211p.newquiz.R;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;

@@ -11,7 +11,6 @@ import android.widget.Button;
 
 import com.example.comp211p.newquiz.HighScores;
 import com.example.comp211p.newquiz.QuizApp;
-import com.example.comp211p.newquiz.QuizInterface1;
 import com.example.comp211p.newquiz.R;
 
 import static com.example.comp211p.newquiz.R.id.container;

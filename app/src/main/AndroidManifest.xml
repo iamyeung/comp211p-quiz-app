@@ -2,7 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.comp211p.newquiz">
 
-    <application>
+    <application
+        android:name=".QuizApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
         <activity
             android:name=".StartScreen"
             android:label="@string/app_name"
@@ -23,7 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".quizInterfaceMultipleFragment.QuizInterfaceMultipleFragment"></activity>
+
         <activity
             android:name=".HighScores"
             android:label="@string/app_name"
@@ -34,7 +41,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".QuestionSelectionPage" />
+
+        <activity android:name=".quizInterfaceMultipleFragment.QuizInterfaceMultipleFragment"></activity>
+
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.

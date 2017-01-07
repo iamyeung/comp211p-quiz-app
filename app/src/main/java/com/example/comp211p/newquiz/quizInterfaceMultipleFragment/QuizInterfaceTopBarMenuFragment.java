@@ -62,7 +62,7 @@ public class QuizInterfaceTopBarMenuFragment extends Fragment{
         quizInterfaceQuestionSelectionPageFragment = new QuizInterfaceQuestionSelectionPageFragment();
         commitTransaction (quizInterfaceQuestionSelectionPageFragment);
 
-        TextView playerName  = (TextView)view.findViewById(R.id.playerName);
+        TextView playerName  = (TextView)view.findViewById(R.id.player1Name);
         QuizApp logic = (QuizApp) getContext();
         if(logic.isPlayer1Active()) {
             playerName.setText("Welcome " + logic.p1.getName() + "!");

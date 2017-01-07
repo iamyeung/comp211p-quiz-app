@@ -15,10 +15,6 @@ import android.widget.TextView;
 public class HighScores extends AppCompatActivity {
 
     private Button finishButton;
-    TextView player1DisplayScore;
-    int player1CalculateScore;
-    int p1q1answer, p1q2answer, p1q3answer, p1q4answer, p1q5answer;
-
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,69 +34,39 @@ public class HighScores extends AppCompatActivity {
         QuizApp logic = (QuizApp) getApplicationContext();
         if (logic.p1 != null)
         {
-            displayScore1(logic.p1.getName(), logic.p1.getScore());
+            displayPlayer1Score(logic.p1.getName(), logic.p1.getScore());
         }
         if (!logic.getIsSinglePlayer() && logic.p2 != null)
         {
-            displayScore2(logic.p2.getName(), logic.p2.getScore());
+            displayPlayer2Score(logic.p2.getName(), logic.p2.getScore());
         }
         displayAllScores(logic.getPlayerHistory(5));
     }
 
     public void displayAllScores(Player[] players)
     {
-        // TODO
-        // get table: display names and scores from player array
+        // TODO...MAY HAVE ERROR HERE
         for (int i=0; i<=players.length-1; i++){
-             //players[i].getName();
-            //players.[i].getScore();
+            String name = players[i].getName();
+            int score = players[i].getScore();
+
+            TextView allHighScores  = (TextView) findViewById(R.id.allHighScores);
+            String firstScore = name + "\t\t" + score;
+            String highScore = firstScore + "\n" + name + "\t\t" + score;
+            allHighScores.setText(highScore);
         }
     }
 
-    public void displayScore1(String name, int score)
+    public void displayPlayer1Score(String name, int score)
     {
-        TextView player1name  = (TextView) findViewById(R.id.playerName);
-        player1name.setText(name + ": " + score);
+        TextView player1NameAndScore  = (TextView) findViewById(R.id.player1NameAndScore);
+        player1NameAndScore.setText(name + "\t\t" + score);
     }
 
-    public void displayScore2(String name, int score)
+    public void displayPlayer2Score(String name, int score)
     {
-        //TODO
+        TextView player2NameAndScore  = (TextView) findViewById(R.id.player2NameAndScore);
+        player2NameAndScore.setText(name + "\t\t" + score);
     }
-
-    /*public void calculatePlayer1Score(){
-
-        player1DisplayScore = (TextView)findViewById(R.id.player1score);
-
-        final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
-
-        int p1q1answer = app_preferences.getInt("p1_answer_value1", 0);
-        int p1q2answer = app_preferences.getInt("p1_answer_value2", 0);
-        int p1q3answer = app_preferences.getInt("p1_answer_value3", 0);
-        int p1q4answer = app_preferences.getInt("p1_answer_value4", 0);
-        int p1q5answer = app_preferences.getInt("p1_answer_value5", 0);
-
-        player1CalculateScore =  p1q1answer + p1q2answer + p1q3answer + p1q4answer + p1q5answer;
-        player1DisplayScore.setText(player1CalculateScore + "/5");
-    }*/
-
-    /*public void resetValues() {
-        final SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
-        editor.putInt("p1_answer_value1", 0);
-        editor.putInt("p1_answer_value2", 0);
-        editor.putInt("p1_answer_value3", 0);
-        editor.putInt("p1_answer_value4", 0);
-        editor.putInt("p1_answer_value5", 0);
-        QuizApp.singlePlayerName = " ";
-        editor.commit();
-    }*/
 
 }
-
-        /*
-        //Don't delete this code please.
-        // Calling Application class
-        final QuizApp app = (QuizApp) getApplicationContext();
-        // Get singlePlayerName from global/application context
-        final String storedSinglePlayerName = app.getSinglePlayerName();
-        */

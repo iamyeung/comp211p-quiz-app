@@ -18,8 +18,8 @@ public class QuizApp extends Application {
     private int currentQuestion;
     private boolean gameOver;
 
-    QuizApp ()
-    {
+    public QuizApp () {}
+    /*
         super();
         this.isSinglePlayer = true;
         this.player1Active = true;
@@ -50,6 +50,7 @@ public class QuizApp extends Application {
                 getResources().getString(R.string.A5),
                 getResources().getBoolean(R.bool.T5));
     }
+    */
 
     public void startSinglePlayer()
     {
