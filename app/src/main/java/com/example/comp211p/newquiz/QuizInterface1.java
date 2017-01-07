@@ -62,6 +62,9 @@ public class QuizInterface1 extends AppCompatActivity {
         trueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                QuizApp logic = (QuizApp) getApplicationContext();
+                logic.answerQuestion(true);
+
                 Toast.makeText(QuizInterface1.this, R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 //all buttons will be set to false, such that none of them can be pressed anymore. they can only press return, or wait 3.5 seconds for the screen to return to question page
@@ -76,6 +79,9 @@ public class QuizInterface1 extends AppCompatActivity {
         falseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                QuizApp logic = (QuizApp) getApplicationContext();
+                logic.answerQuestion(false);
+
                 Toast.makeText(QuizInterface1.this, R.string.correctMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 //all buttons will be set to false, such that none of them can be pressed anymore. they can only press return, or wait 3.5 seconds for the screen to return to question page
@@ -98,6 +104,9 @@ public class QuizInterface1 extends AppCompatActivity {
         cheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                QuizApp logic = (QuizApp) getApplicationContext();
+                logic.cheatQuestion();
+
                 Toast.makeText(QuizInterface1.this, R.string.cheatMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 //all buttons will be set to false, such that none of them can be pressed anymore. they can only press return, or wait 3.5 seconds for the screen to return to question page

@@ -14,8 +14,13 @@ public class Player {
 
     Player(String name)
     {
+        this(name, 0);
+    }
+
+    Player(String name, int score)
+    {
         this.name = name;
-        score = 0;
+        this.score = score;
         questionsAnswered = new HashSet<Integer>();
     }
 

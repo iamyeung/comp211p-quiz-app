@@ -25,6 +25,8 @@ public class QuestionSelectionPage extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                QuizApp logic = (QuizApp) getApplicationContext();
+                logic.setCurrentQuestion(1);
                 Intent in = new Intent(getApplicationContext(), QuizInterface1.class);
                 startActivity(in);
             }
@@ -34,6 +36,8 @@ public class QuestionSelectionPage extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                QuizApp logic = (QuizApp) getApplicationContext();
+                logic.setCurrentQuestion(2);
                 Intent in = new Intent(getApplicationContext(), QuizInterface1.class);
                 startActivity(in);
             }
@@ -43,6 +47,8 @@ public class QuestionSelectionPage extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                QuizApp logic = (QuizApp) getApplicationContext();
+                logic.setCurrentQuestion(3);
                 Intent in = new Intent(getApplicationContext(), QuizInterface1.class);
                 startActivity(in);
             }
@@ -52,6 +58,8 @@ public class QuestionSelectionPage extends AppCompatActivity {
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                QuizApp logic = (QuizApp) getApplicationContext();
+                logic.setCurrentQuestion(4);
                 Intent in = new Intent(getApplicationContext(), QuizInterface1.class);
                 startActivity(in);
             }
@@ -61,6 +69,8 @@ public class QuestionSelectionPage extends AppCompatActivity {
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                QuizApp logic = (QuizApp) getApplicationContext();
+                logic.setCurrentQuestion(5);
                 Intent in = new Intent(getApplicationContext(), QuizInterface1.class);
                 startActivity(in);
             }
@@ -83,12 +93,14 @@ public class QuestionSelectionPage extends AppCompatActivity {
         if (logic.hasAnsweredQuestion(3)) button3.setEnabled(false);
         if (logic.hasAnsweredQuestion(4)) button4.setEnabled(false);
         if (logic.hasAnsweredQuestion(5)) button5.setEnabled(false);
+
+        if (logic.isGameOver()) goToScorePage();
     }
 
     public void goToScorePage()
     {
         //TODO
-        // will be accesses when logic says game is done
+        // will be accessed when logic says game is done
     }
 
     /**
