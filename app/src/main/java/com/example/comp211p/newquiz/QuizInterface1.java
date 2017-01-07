@@ -62,8 +62,10 @@ public class QuizInterface1 extends AppCompatActivity {
         trueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //remember that we do not use QuizInterface1.java, so I think you should copy this code into QuizInterfaceMultipleFragment1
                 QuizApp logic = (QuizApp) getApplicationContext();
                 logic.answerQuestion(true);
+                //MOVE THIS CODE TO QuizInterfaceMultipleFragment1,QuizInterfaceMultipleFragment2, QuizInterfaceMultipleFragment3 etc.
 
                 Toast.makeText(QuizInterface1.this, R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
@@ -79,6 +81,7 @@ public class QuizInterface1 extends AppCompatActivity {
         falseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //remember that we do not use QuizInterface1.java, so I think you should copy this code into QuizInterfaceMultipleFragment1
                 QuizApp logic = (QuizApp) getApplicationContext();
                 logic.answerQuestion(false);
 
@@ -104,6 +107,7 @@ public class QuizInterface1 extends AppCompatActivity {
         cheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //remember that we do not use QuizInterface1.java, so I think you should copy this code into QuizInterfaceMultipleFragment1
                 QuizApp logic = (QuizApp) getApplicationContext();
                 logic.cheatQuestion();
 
@@ -124,7 +128,7 @@ public class QuizInterface1 extends AppCompatActivity {
         findViewById(R.id.answerText).setVisibility(View.VISIBLE);
         TranslateAnimation animation = new TranslateAnimation(0, 0, 2000, 0);
         //animation time for the text to pop up is 0.5 seconds, can change if you need
-        animation.setDuration(500);
+        animation.setDuration(200);
         findViewById(R.id.answerText).startAnimation(animation);
     }
 

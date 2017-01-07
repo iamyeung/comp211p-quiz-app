@@ -68,7 +68,7 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
             public void onClick(View v) {
                 // TODO: get game logic and answer question
 
-                //Toast.makeText(getActivity(), R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
             }
@@ -76,7 +76,7 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
         falseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getActivity(), R.string.correctMessage, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.correctMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
             }
@@ -84,7 +84,7 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
         skipButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getActivity(), R.string.skipTo2Message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.skipTo2Message, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), QuestionSelectionPage.class);
                 startActivity(intent);
             }
@@ -92,7 +92,7 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
         cheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getActivity(), R.string.cheatMessage, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.cheatMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
             }
