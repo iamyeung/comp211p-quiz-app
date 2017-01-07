@@ -32,7 +32,9 @@ public class InputName extends AppCompatActivity {
                     Intent in = new Intent(getBaseContext(), QuizInterfaceMultipleFragment.class);
                     startActivity(in);
                 } else {
-                    // TODO: repeat input name for player 2
+                    // repeats input name for player 2
+                    Intent in = new Intent(getBaseContext(), InputName.class);
+                    startActivity(in);
                 }
             }
         });
