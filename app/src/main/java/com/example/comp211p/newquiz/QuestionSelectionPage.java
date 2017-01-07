@@ -97,23 +97,24 @@ public class QuestionSelectionPage extends AppCompatActivity {
 
     public void goToScorePage()
     {
-        //TODO will be accessed when logic says game is done
         Intent in = new Intent(getApplicationContext(), HighScores.class);
         startActivity(in);
     }
 
+    // DEPRECATED
     /**
      * Repeats the game for player 2. Starts by going to the Question Selection page.
      */
-    public void startPlayer2()
+    /*public void startPlayer2()
     {
+        // Switching player happens automatically when player1 has answered all questions
         QuizApp logic = (QuizApp) getApplicationContext();
         // switch from player 1 to player 2
         logic.switchPlayer();
-        // TODO: REPEAT ALL QUESTIONS FOR PLAYER 2 (go to question selection page)
+
         Intent in = new Intent(getApplicationContext(), QuestionSelectionPage.class);
         startActivity(in);
-    }
+    }/*
 
     /**
      * Disables one of the five question buttons (should be used when question is already answered)

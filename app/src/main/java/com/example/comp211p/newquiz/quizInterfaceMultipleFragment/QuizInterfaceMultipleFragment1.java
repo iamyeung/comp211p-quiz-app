@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -57,6 +58,11 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
         answerText = (TextView) rootView.findViewById(R.id.answerText);
         answerText.setVisibility(View.INVISIBLE);
 
+        // TODO: This should replace all other fragements: questions should be loaded dynamically
+        // display the correct question and answer
+        QuizApp logic = (QuizApp) getActivity().getApplicationContext();
+        displayQuestion(logic.getCurrentQuestion(), rootView);
+
         //selectedButton is a method that causes all the other buttons to be disabled once one button is chosen
         selectedButton();
         return rootView;
@@ -70,7 +76,8 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
         trueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: get game logic and answer question
+                QuizApp logic = (QuizApp) getActivity().getApplicationContext();
+                logic.answerQuestion(true);
 
                 Toast.makeText(getActivity(), R.string.incorrectMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
@@ -80,6 +87,9 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
         falseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                QuizApp logic = (QuizApp) getActivity().getApplicationContext();
+                logic.answerQuestion(false);
+
                 Toast.makeText(getActivity(), R.string.correctMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
@@ -98,11 +108,31 @@ public class QuizInterfaceMultipleFragment1 extends Fragment {
         cheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                QuizApp logic = (QuizApp) getActivity().getApplicationContext();
+                logic.cheatQuestion();
+
                 Toast.makeText(getActivity(), R.string.cheatMessage, Toast.LENGTH_SHORT).show();
                 revealAnswer();
                 disableAllButtons();
             }
         });
+    }
+
+    public void displayQuestion(int questionNum, View v)
+    {
+        if (questionNum >= 1 && questionNum <=5) {
+            try {
+                TextView question = (TextView) v.findViewById(R.id.questionText);
+                String qText = getString(this.getResources().getIdentifier("Q"+questionNum, "String", getActivity().getApplicationContext().getPackageName()));
+                question.setText(qText);
+
+                TextView answer = (TextView) v.findViewById(R.id.answerText);
+                String aText = getString(this.getResources().getIdentifier("A"+questionNum, "String", getActivity().getApplicationContext().getPackageName()));
+                answer.setText(aText);
+            } catch (NullPointerException npe) {
+                Log.e("QIMF", "Null Pointer Exception caught: The given view does not have a question text.");
+            }
+        }
     }
 
     public void revealAnswer() {
