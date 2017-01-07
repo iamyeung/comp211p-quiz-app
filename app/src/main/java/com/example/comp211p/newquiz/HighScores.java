@@ -47,53 +47,31 @@ public class HighScores extends AppCompatActivity {
         displayAllScores(logic.getPlayerHistory(5));
     }
 
-    public void displayAllScores(Player[] players)
-    {
+    public void displayAllScores(Player[] players) {
         // TODO
         // get table: display names and scores from player array
-        for (int i=0; i<=players.length-1; i++){
-             //players[i].getName();
-            //players.[i].getScore();
+        for (int i = 0; i <= players.length - 1; i++) {
+            String name = players[i].getName();
+            int score = players[i].getScore();
+
+            TextView allHighScores = (TextView) findViewById(R.id.allHighScores);
+            String firstScore = name + "\t\t" + score;
+            String highScore = firstScore + "\n" + name + "\t\t" + score;
+            allHighScores.setText(highScore);
         }
     }
 
     public void displayScore1(String name, int score)
     {
-        TextView player1name  = (TextView) findViewById(R.id.playerName);
-        player1name.setText(name + ": " + score);
+        TextView player1NameAndScore  = (TextView) findViewById(R.id.player1NameAndScore);
+        player1NameAndScore.setText(name + ": " + score);
     }
 
     public void displayScore2(String name, int score)
     {
-        //TODO
+        TextView player2NameAndScore  = (TextView) findViewById(R.id.player2NameAndScore);
+        player2NameAndScore.setText(name + ": " + score);
     }
-
-    /*public void calculatePlayer1Score(){
-
-        player1DisplayScore = (TextView)findViewById(R.id.player1score);
-
-        final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
-
-        int p1q1answer = app_preferences.getInt("p1_answer_value1", 0);
-        int p1q2answer = app_preferences.getInt("p1_answer_value2", 0);
-        int p1q3answer = app_preferences.getInt("p1_answer_value3", 0);
-        int p1q4answer = app_preferences.getInt("p1_answer_value4", 0);
-        int p1q5answer = app_preferences.getInt("p1_answer_value5", 0);
-
-        player1CalculateScore =  p1q1answer + p1q2answer + p1q3answer + p1q4answer + p1q5answer;
-        player1DisplayScore.setText(player1CalculateScore + "/5");
-    }*/
-
-    /*public void resetValues() {
-        final SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
-        editor.putInt("p1_answer_value1", 0);
-        editor.putInt("p1_answer_value2", 0);
-        editor.putInt("p1_answer_value3", 0);
-        editor.putInt("p1_answer_value4", 0);
-        editor.putInt("p1_answer_value5", 0);
-        QuizApp.singlePlayerName = " ";
-        editor.commit();
-    }*/
 
 }
 
