@@ -1,10 +1,3 @@
 # comp211p-quiz-app
 
-The program currently goes like this.
-1. Start Screen (MainActivity.java)
-Press Single Player
-2. Single Player Screen (SinglePlayerInputName.java)
-Enter Name
-3. Question Page Screen (QuestionPage.java)
-Press Q1
-4. Quiz 1 Screen (QuizInterface.java)
+TrueorFalse is a free non-award winning trivia game developed for Android devices. It is a five-question quiz designed to challenge your knowledge about U.S. presidents, historical monuments like the Great Wall or simply about the UCL student lifestyle. It is up to you to choose whether you want to play it by yourself improving your general knowledge, or decide to play against a friend to find out who is the smartest – all scores are stored so they will never be lost. But don’t worry, in case you do not know the answer to a question you can always skip it and come back later, or click the cheat button to reveal the answer right away. Points, however, are only awarded if you get the correct answer.
