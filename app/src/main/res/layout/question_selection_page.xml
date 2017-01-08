@@ -109,15 +109,5 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp" />
-
-        <Button
-            android:text="QUIT"
-            android:layout_height="wrap_content"
-            android:id="@+id/quitButton"
-            android:background="@android:color/holo_orange_light"
-            android:layout_width="100dp"
-            android:textAlignment="center"
-            android:gravity="center"
-            android:layout_gravity="center" />
     </LinearLayout>
 </RelativeLayout>
