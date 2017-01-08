@@ -29,7 +29,7 @@ public class HighScores extends AppCompatActivity {
                 Intent in = new Intent(getApplicationContext(), StartScreen.class);
                 startActivity(in);
             }
-        });
+        }); 
 
         QuizApp logic = (QuizApp) getApplicationContext();
         if (logic.p1 != null)
@@ -44,11 +44,9 @@ public class HighScores extends AppCompatActivity {
     }
 
     public void displayAllScores(Player[] players) {
-        // TODO - UNSURE IF THE DISPLAY SCORE WILL WORK
-        // get table: display names and scores from player array
         String highScore = "";
         for (int i = 0; i <= players.length - 1; i++) {
-            highScore += players[i].getName() + "\t\t" + players[i].getScore() + "\n";
+            highScore += players[i].getName() + ": " + players[i].getScore() + "\n";
         }
         TextView allHighScores = (TextView) findViewById(R.id.allHighScores);
         allHighScores.setText(highScore);
@@ -67,11 +65,3 @@ public class HighScores extends AppCompatActivity {
     }
 
 }
-
-        /*
-        //Don't delete this code please.
-        // Calling Application class
-        final QuizApp app = (QuizApp) getApplicationContext();
-        // Get singlePlayerName from global/application context
-        final String storedSinglePlayerName = app.getSinglePlayerName();
-        */
